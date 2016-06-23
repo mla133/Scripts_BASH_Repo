@@ -25,6 +25,7 @@ echo "select tran_add4 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/
 echo "select tran_add5 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
 echo "select tran_add6 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
 echo "select * from injector_nonresets where injector_nonresets_id<7;" >> /tmp/commands.sql
+echo "select injector_data_id, live_vol_per_inj, live_vol_per_cycle from injector_data where injector_data_id<7;" >> /tmp/commands.sql
 echo ".quit" >> /tmp/commands.sql
 sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
 rm -rf /tmp/commands.sql
