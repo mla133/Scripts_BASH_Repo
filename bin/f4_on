@@ -1,0 +1,10 @@
+html_text="`curl --user admin:matt http://192.168.181.219/index.htm`";
+   # Call and load webpage text.
+   # NOTE: The "-A Mozilla/4.0" option is important for many pages to mock a browser call.
+ 
+search_result=`echo $html_text | grep "outlet?5=OFF"`;     # Looks for 'State OFF'
+if [[ $search_result ]]; then       # If our search text exits:
+  ./blink1-tool --green;            #   shine green
+else                                # Else:
+  ./blink1-tool --red;              #   shine blue
+fi

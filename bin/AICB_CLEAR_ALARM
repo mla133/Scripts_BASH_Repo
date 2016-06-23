@@ -1,0 +1,42 @@
+#!/bin/bash
+echo "***CLEARING POWER-FAIL ALARMS***"
+echo -n "101CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "102CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "103CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "104CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "105CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "106CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "107CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "108CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "109CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "110CA 1000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo

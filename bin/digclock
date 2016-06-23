@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+#
+#
+echo
+echo "Digital Clock for Linux"
+echo "To stop this clock, use kill command on PID"
+echo "Press a key to continue..."
+
+while :
+do
+  ti=`date +"%r"`
+  echo -e -n "\033[7s"   #save current screen attributes
+  # Show the clock
+  tput cup 0 69          #row 0 and col 69 is used to show clock
+  echo -n $ti
+  echo -e -n "\033[8u"   #restore current screen position and attributes
+  # Delay for 1 second
+  sleep 1
+done

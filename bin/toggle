@@ -1,0 +1,5 @@
+#!/bin/bash
+OUTLET=$1
+STATE=$2
+
+curl --user admin:matt http://192.168.181.219/outlet?$OUTLET=$STATE

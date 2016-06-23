@@ -1,0 +1,13 @@
+#!/bin/bash
+OUTLET=$1
+
+html_text="`curl --user admin:matt http://192.168.181.219/index.htm`";
+   # Call and load webpage text.
+   # NOTE: The "-A Mozilla/4.0" option is important for many pages to mock a browser call.
+ 
+search_result=`echo $html_text | grep 'outlet?'$OUTLET'=OFF'`;     # Looks for 'SearchText'
+if [[ $search_result ]]; then       # If our search text exits:
+echo -e "Outlet $OUTLET is \E[32;40mON\E[0m"
+else                                # Else:
+echo -e "Outlet $OUTLET is \E[31;40mOFF\E[0m"
+fi

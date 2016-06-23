@@ -1,0 +1,17 @@
+#!/bin/sh
+
+echo ".timeout 10000" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'powerfail');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'internal_error');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'iop_comm_failure');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'aicb1_autodetect');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'addPak1_powerfail');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'addPak2_powerfail');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'mram_alarm');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'a4m_comm_failure');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'hmi_a_failure');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'hmi_b_failure');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'a4m_firmware_error');" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

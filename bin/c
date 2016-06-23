@@ -1,0 +1,3 @@
+#!/bin/bash
+# This does basic arithmetic in console "c 100+1" outputs 101...
+echo "$@" | bc

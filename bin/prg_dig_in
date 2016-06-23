@@ -1,0 +1,66 @@
+#!/usr/bin/expect -f
+spawn telnet -e ! 192.168.181.76 7734
+#log_user 0
+expect "Connected to FMC Technologies Evolution*"
+send "LO\r"
+expect "OK"
+send "LI \"Weights & Measures\" wm\r"
+expect "OK"
+send "CF CN ON\r"
+expect "OK"
+send "PV dig_in_config dig_in_id 1 dig_in_function\r"
+expect "*dig_in_id 1 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 2 dig_in_function\r"
+expect "*dig_in_id 2 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 3 dig_in_function\r"
+expect "*dig_in_id 3 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 4 dig_in_function\r"
+expect "*dig_in_id 4 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 5 dig_in_function\r"
+expect "*dig_in_id 5 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 6 dig_in_function\r"
+expect "*dig_in_id 6 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 7 dig_in_function\r"
+expect "*dig_in_id 7 ?"
+sleep 1
+send "PV dig_in_config dig_in_id 8 dig_in_function\r"
+expect "*dig_in_id 8 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 1 dig_out_function\r"
+expect "*dig_out_id 1 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 2 dig_out_function\r"
+expect "*dig_out_id 2 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 3 dig_out_function\r"
+expect "*dig_out_id 3 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 4 dig_out_function\r"
+expect "*dig_out_id 4 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 5 dig_out_function\r"
+expect "*dig_out_id 5 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 6 dig_out_function\r"
+expect "*dig_out_id 6 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 7 dig_out_function\r"
+expect "*dig_out_id 7 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 8 dig_out_function\r"
+expect "*dig_out_id 8 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 9 dig_out_function\r"
+expect "*dig_out_id 9 ?"
+sleep 1
+send "PV dig_out_config dig_out_id 10 dig_out_function\r"
+expect "*dig_out_id 10 ?"
+sleep 1
+send "LO\r"
+expect "OK"

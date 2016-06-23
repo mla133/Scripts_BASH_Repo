@@ -1,0 +1,15 @@
+--2016-05-18 11:38:13--  http://asmadigames.com/odd_pnp.pdf
+Resolving asmadigames.com... 66.33.223.113
+Connecting to asmadigames.com|66.33.223.113|:80... connected.
+HTTP request sent, awaiting response... 302 Moved
+Location: http://172.28.254.130:15871/cgi-bin/blockpage.cgi?ws-session=1505034154 [following]
+--2016-05-18 11:38:14--  http://172.28.254.130:15871/cgi-bin/blockpage.cgi?ws-session=1505034154
+Connecting to 172.28.254.130:15871... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1943 (1.9K) [text/html]
+Saving to: `odd_pnp.pdf'
+
+     0K .                                                     100%  304M=0s
+
+2016-05-18 11:38:14 (304 MB/s) - `odd_pnp.pdf' saved [1943/1943]
+

@@ -1,0 +1,2 @@
+#!/bin/bash
+sleep 2500 && echo -e '\E[36;40mTwenty-five (25) minutes have passed.\E[0m' &

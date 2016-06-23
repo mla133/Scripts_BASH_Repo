@@ -1,0 +1,66 @@
+#!/usr/bin/expect -f
+#set timeout -1
+spawn telnet -e ! 192.168.181.76 7734
+#log_user 0
+expect "Connected to FMC Technologies Evolution*"
+send "LO\r"
+expect "OK"
+send "LI Administrator &_NONE_&\r"
+expect "OK"
+send "CF CN ON\r"
+expect "OK"
+
+send "PV dig_in_config N 1 dig_in_function\r"
+sleep 1
+  expect {
+   "PV *N ? ? digital_in_function*" {exp_continue}
+   "*N 1 ?" {send "PV dig_in_config N 2 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 2 ?" {send "PV dig_in_config N 3 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 3 ?" {send "PV dig_in_config N 4 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 4 ?" {send "PV dig_in_config N 5 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 5 ?" {send "PV dig_in_config N 6 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 6 ?" {send "PV dig_in_config N 7 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 7 ?" {send "PV dig_in_config N 8 dig_in_function\r"; sleep 1; exp_continue}
+   "*N 8 ?" {sleep 1} 
+  }
+
+send "PV dig_out_config N 1 dig_out_function\r"
+sleep 1
+  expect {
+   "PV *N ? ? digital_out_function" {exp_continue}
+   "*N 1 ?" {send "PV dig_out_config N 2 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 2 ?" {send "PV dig_out_config N 3 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 3 ?" {send "PV dig_out_config N 4 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 4 ?" {send "PV dig_out_config N 5 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 5 ?" {send "PV dig_out_config N 6 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 6 ?" {send "PV dig_out_config N 7 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 7 ?" {send "PV dig_out_config N 8 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 8 ?" {send "PV dig_out_config N 9 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 9 ?" {send "PV dig_out_config N 10 dig_out_function\r"; sleep 1; exp_continue}
+   "*N 10 ?" {sleep 1} 
+  }
+
+send "PV system_config unit_id\r"
+sleep 1
+  expect {
+  "NO00" {sleep 1}
+  "unit_id *" {send "PV system_config vol_units\r"; sleep 1; exp_continue}
+  "*vol_units ?" {send "PV system_config mass_units\r"; sleep 1; exp_continue}
+  "*mass_units ?" {send "PV system_config temp_units\r"; sleep 1; exp_continue}
+  "*temp_units ?" {send "PV system_config presets_allowed\r"; sleep 1; exp_continue}
+  "*presets_allowed ?" {send "PV system_config preset_function\r"; sleep 1; exp_continue}
+  "*preset_function ?" {send "PV system_config inventory_enable\r"; sleep 1; exp_continue}
+
+  "*inventory_enable ?" {send "PV system_config run_screen_data_slot_1\r"; sleep 1; exp_continue}
+
+  "*data_slot_1 ?" {send "PV system_config run_screen_data_slot_2\r"; sleep 1; exp_continue}
+
+  "*data_slot_2 ?" {send "PV system_config run_screen_data_slot_3\r"; sleep 1; exp_continue}
+
+  "*data_slot_3 ?" {send "PV system_config run_screen_data_slot_4\r"; sleep 1; exp_continue}
+
+  "*data_slot_4 ?" {sleep 1}
+  } 
+
+send "LO\r"
+expect "OK"

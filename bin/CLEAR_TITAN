@@ -1,0 +1,13 @@
+#!/bin/bash
+echo -n "009AC 001 0000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "009AT 001 0.00" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo -n "009PT 001 0.00" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo

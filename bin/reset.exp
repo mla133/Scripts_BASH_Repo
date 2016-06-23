@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+spawn sudo ssh root@192.168.180.87
+expect "*allenma:"
+send "anthrax3\r"
+expect "*password:"
+send "\r"
+send "cat inj.pid"
+interact

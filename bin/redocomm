@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/process_watchdog /usr/bin/comm >/dev/null 2>&1 &

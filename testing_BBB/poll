@@ -1,0 +1,30 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo ".mode line" >> /tmp/commands.sql
+echo "-- Poll Batch Data" >> /tmp/commands.sql
+echo "select arm_no from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_no from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select recipe_no from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select preset_vol from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select remain_vol from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_status from arm_live_data where arm_live_data_id=$1;" >> /tmp/commands.sql
+echo "select pump_status from arm_live_data where arm_live_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_gv from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add1 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add2 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add3 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add4 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add5 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add6 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_gv from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_add1 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_add2 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_add3 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_add4 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_add5 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_add6 from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo "select * from injector_nonresets where injector_nonresets_id<7;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

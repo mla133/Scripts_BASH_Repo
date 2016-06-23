@@ -1,0 +1,9 @@
+#!/bin/bash
+# Extracts portal list into two fields (Name|Address) from comm raw input
+if [ -z "$1" ]; then
+	echo usage: $0 INPUT_FILE 
+	exit
+fi
+SRCF=$1
+#grep -v ":" $SRCF | sed -e '/linked/d' | sed -e 's/captured /captured|/g' | sed -e 's/Resonator on /Resonator on|/g' | sed -e 's/ (/|/g' | sed -e 's/)/|/g' | sed -e 's/@/|/g' | sed -e '/is under attack/d' | sed -e '/neutralized by/d' | sed -e '/destroyed by/d' | sed -e 's/the Link /the Link|
+grep -v ":" $SRCF | sed -e '/Oct */d' | sed -e '/Your */d' | sed -e 's/ deployed /|deployed|/g' | sed -e 's/on /on|/g' | sed -e 's/ (/|/g' | sed -e 's/)/|/g' | sed -e 's/ destroyed /|destroyed|/g' | sed -e 's/ linked /|linked|/g' | sed -e 's/ captured /|captured|/g' | sed -e 's/ created a Control Field /|created CF/g' | sed -e 's/@/|/g' | sed -e 's/an L8 Resonator on|//g' | sed -e 's/an L7 Resonator on|//g' | sed -e 's/an L6 Resonator on|//g' | sed -e 's/an L5 Resonator on|//g' | sed -e 's/an L4 Resonator on|//g' | sed -e 's/an L3 Resonator on|//g' | sed -e 's/an L2 Resonator on|//g' | sed -e 's/an L1 Resonator on|//g' | sed -e 's/||/\n/g' | cut -d '|' -f 1-4

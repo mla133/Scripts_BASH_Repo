@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+	echo usage: $0 HTML_FILE
+	exit
+fi
+
+cat $1 | sed 's/<\/tr[^>]*>/\n/Ig' | sed 's/<\/\?\(table\|tr\)[^>]*>//Ig' | sed 's/^<t[dh][^>]*>\|<\/\?t[dh][^>]*>$//Ig' | sed 's/<\/t[dh][^>]*><t[dh][^>]*>/,/Ig' > data.csv

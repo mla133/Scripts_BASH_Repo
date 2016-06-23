@@ -1,0 +1,26 @@
+#!/bin/bash
+echo "BLEND-PAK COMM TEST"
+echo
+echo "II - (EX 050)"
+echo -n "009EX 050" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "AUTHORIZE- (EX 010)"
+echo -n "009EX 010" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "POLL_TOTALS- (RV 860)"
+echo -n "009RV 860" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "POLL_ALARMS - (RV 802)"
+echo -n "009RV 802" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "DEAUTHORIZE - (EX 001)"
+echo -n "009EX 001" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "SET_VOL_PER_INJ - (WV 020)"
+echo -n "009WV 020 0020.0" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "SET_VOL_PER_CYCLE- (WV 010)"
+echo -n "009WV 010 0010.0" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+echo "CLEAR_ALARMS - (EX 301)"
+echo -n "009EX 301" > /var/tmp/a4m/socat_output_smart_injector_fifo

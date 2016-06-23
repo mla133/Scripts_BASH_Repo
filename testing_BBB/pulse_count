@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo "select pulse_in_diag_id, pulse_in_assignment, pulse_in_count from pulse_in_diag where pulse_in_count>0;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

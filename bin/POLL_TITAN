@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -n "009ls 001" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo

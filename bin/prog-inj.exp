@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+spawn ssh root@192.168.180.137
+set timeout 10
+
+expect "*?assword:*"
+
+send "root\r";
+expect "*beaglebone:~#"
+send_user "\n\nProgramming Injector Parameters\n"
+send "sqlite3 /dev/shm/pdb_edit_buf.sqlite < ~/prog-inj.sql\r"
+expect "*beaglebone:~#"
+
+send_user "\n\nChecking if database is still locked...\n"
+send "sqlite3 /dev/shm/accu4_db_ram.sqlite < /dev/shm/poll_LO.sql\r"
+while 1 {
+  expect {
+	"0" {break}
+	"*Error*" {send "sqlite3 /dev/shm/accu4_db_ram.sqlite < /dev/shm/poll_LO.sql\r"}
+	timeout {send_user "\nTimed out after 10 seconds\n"; break}
+  }
+}
+
+send_user "\nLogging out...\n"
+send "sqlite3 /dev/shm/accu4_db_ram.sqlite < ~/logout.sql\r"
+expect "*beaglebone:~#"

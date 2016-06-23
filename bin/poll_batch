@@ -1,0 +1,2 @@
+#!/bin/bash
+sqlite3 -line accu4_db.sqlite < ~/bin/SQL/poll_batch.sql

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo "select * from alarm_log;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

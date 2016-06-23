@@ -1,0 +1,92 @@
+# build_package
+# Use:  sudo ./build_package $1 $2 $3
+# where $1 = subdirectory name of "software development"
+#       $2 = subdirectory name of "revelation"
+#	$3 = revision number (e.g., 03)
+# For example, sudo ./build_package swdevelopment revelation 03
+
+# This script copies all Evolution release files to the application directory,
+# in the proper places.  It also calculates the md5sum for all files and writes
+# this to a file that will be copied to Evolution during package installation.
+# Finally the script invokes ipkg_build.sh to create the .ipk file.
+
+# Check that command line args exist.
+
+if [ $# -lt 3 ]; then
+	echo "ERROR -- missing command line arguments \$1 and \$2 and \$3"
+	exit 2
+fi
+
+# First ensure that any existing 'application' directory is backed up.
+# Directory name will be 'application.<today's date>'
+
+if [ -d "$HOME/application" ]; then
+	x='$HOME/application.'`date`;
+	echo $x | sed -e 's/ /_/g' > dirname;
+	cat dirname|awk '{cmd="mv $HOME/application "$0; system(cmd);}';
+	rm dirname
+fi
+
+# Create the CONTROL and deployment subdirectories in application.
+
+mkdir $HOME/application;
+mkdir $HOME/application/CONTROL;
+mkdir $HOME/application/deployment;
+mkdir $HOME/application/deployment/usr;
+mkdir $HOME/application/deployment/usr/bin;
+mkdir $HOME/application/deployment/var;
+mkdir $HOME/application/deployment/var/lib;
+mkdir $HOME/application/deployment/var/lib/Evolution;
+mkdir $HOME/application/deployment/var/lib/Evolution/package;
+mkdir $HOME/application/deployment/etc;
+mkdir $HOME/application/deployment/etc/init.d;
+mkdir $HOME/application/deployment/etc/networking;
+mkdir $HOME/application/deployment/etc/hostapd;
+
+# Copy the Evolution release files from $HOME/$1/$2/... to $HOME/application/deployment.
+
+cp -r $HOME/$1/$2/www $HOME/application/deployment
+cp $HOME/$1/$2/comm/gumstix/comm $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/process_watchdog/gumstix/process_watchdog $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/printer_daemon/gumstix/printer_daemon $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/delivery/gumstix/revelation $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/set_time/gumstix/set_time $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/evo-ftp/gumstix/evo-ftp $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/QtGUI/QtGUI $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/utilities/*.awk $HOME/application/deployment/usr/bin
+cp $HOME/$1/$2/printer_daemon/*.xml $HOME/application/deployment/var/lib/Evolution
+
+# Call a script that calculates the file 'checksum', written to /var/lib/Evolution/package/.
+# The md5sums are calculated for every file comprising the release.
+
+./calcchecksums
+
+# Create the CONTROL/control file needed when building the package.
+
+echo -n " ### Begin CONTROL/control file, to be stored in ipkg file
+Package: application
+Priority: optional
+Section: Settings
+Version: 0." > $HOME/application/CONTROL/control;
+echo $3 >> $HOME/application/CONTROL/control;
+echo -n "Architecture: arm
+Maintainer: evolution@fmcti.com
+Description: This package contains Evolution release 00." >> $HOME/application/CONTROL/control;
+echo $3 >> $HOME/application/CONTROL/control;
+
+# Create the CONTROL/postinst file needed after installing the package on the Evolution.
+
+echo "echo \`date\` > /var/lib/Evolution/package/installdate" > $HOME/application/CONTROL/postinst
+chmod a+x $HOME/application/CONTROL/postinst
+
+# Call the script that creates the ipk file.
+
+./ipkg-build.sh application
+
+# Rename the resulting package file as 'application.ipk'.
+
+echo -n Renaming package file application_0.$3_arm.ipk as 'application.ipk'...
+mv application_0.$3_arm.ipk application.ipk
+echo Done
+
+

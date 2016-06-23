@@ -1,0 +1,2 @@
+#!/bin/bash
+sqlite3 /dev/shm/pdb_edit_buf.sqlite < ~/bin/SQL/prog_titan.sql

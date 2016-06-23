@@ -1,0 +1,26 @@
+# calcchecksums
+# Use: Called from build_package script, to calculate md5 checksums over
+# all of the files contained in the release prior to writing these to the ipk file.
+
+# Calculate the md5sum for all files in the distribution, ignoring those that can change.
+
+find $HOME/application/deployment/var/lib/Evolution ! -iname '*.sqlite*' -a ! -iname hexlistmd5sums -a ! -iname summd5sums -a ! -iname listmd5sums -a ! -iname '*.log' -a ! -iname README -a ! -iname '*.txt' -exec md5sum {} 2>/dev/null > $HOME/listmd5sums \;
+find $HOME/application/deployment/www/pages -exec md5sum {} 2>/dev/null >> listmd5sums \;
+find $HOME/application/deployment/usr/bin/revelation -exec md5sum 2>/dev/null {} >> listmd5sums \;
+find $HOME/application/deployment/usr/bin/printer_daemon -exec md5sum  2>/dev/null {} >> listmd5sums \; 
+find $HOME/application/deployment/usr/bin/QtGUI -exec md5sum 2>/dev/null {} >> listmd5sums \;
+find $HOME/application/deployment/usr/bin/comm -exec md5sum 2>/dev/null {} >> listmd5sums \;
+find $HOME/application/deployment/usr/bin/set_time -exec md5sum 2>/dev/null {} >> listmd5sums \;
+find $HOME/application/deployment/usr/bin/process_watchdog -exec md5sum 2>/dev/null {} >> listmd5sums \;
+find $HOME/application/deployment/usr/bin/evo-ftp -exec md5sum 2>/dev/null {} >> listmd5sums \;
+find $HOME/application/deployment/usr/bin -iname '*.awk' -exec md5sum 2>/dev/null {} >> listmd5sums \;
+
+# Convert the first column of numbers per line into hexadecimal form for awk.
+
+awk '{printf("0x%s  %s\n",$1, $2)}' listmd5sums > hexlistmd5sums;
+
+# Calculate the sum of the md5sums for all listed files.  Output for capture by PHP.
+
+awk -W non-decimal-data '{s+=substr($1,1,6)}END{print s}' hexlistmd5sums >summd5sums
+cp summd5sums $HOME/application/deployment/var/lib/Evolution/package/checksum
+

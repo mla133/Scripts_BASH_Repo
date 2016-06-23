@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+spawn telnet -e ! 192.168.181.76 7734 
+#log_user 0
+expect "Connected to FMC Technologies Evolution*"
+#send "LO\r"
+#expect "OK"
+#send "LI matt allen\r"
+#expect "OK"
+send "CF CN ON\r"
+expect "OK"
+send "RA\r"
+expect "*tioa_power_failure*"

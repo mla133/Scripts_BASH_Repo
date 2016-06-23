@@ -1,0 +1,63 @@
+#!/bin/bash
+# Returns status of injector #101 of AICB
+echo "***101 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "101DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***102 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "102DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***103 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "103DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***104 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "104DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***105 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "105DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***106 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "106DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***107 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "107DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***108 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "108DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***109 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "109DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+echo "***110 DE-AUTHORIZATION***"
+echo -n "AUTHORIZE = "
+echo -n "110DP" > /var/tmp/a4m/socat_output_smart_injector_fifo
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+

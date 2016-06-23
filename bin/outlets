@@ -1,0 +1,9 @@
+#!/bin/bash
+outlet_noblink 1
+outlet_noblink 2
+outlet_noblink 3
+outlet_noblink 4
+outlet_noblink 5
+outlet_noblink 6
+outlet_noblink 7
+outlet_noblink 8

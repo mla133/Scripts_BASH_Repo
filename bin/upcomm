@@ -1,0 +1,5 @@
+#!/usr/bin/expect -f
+spawn scp "~/projects/revelation/comm/Release_0.0/comm" root@192.168.181.76:/usr/bin
+expect "root@192.168.181.76's password:"
+send "root\n"
+interact

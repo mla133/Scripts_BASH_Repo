@@ -1,0 +1,6 @@
+#!/bin/bash 
+modbus_poll_tons &
+modbus_poll_tons &
+modbus_poll_tons &
+modbus_poll_tons &
+modbus_poll_tons &

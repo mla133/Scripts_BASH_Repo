@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/command.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2, cmd_arg_3) VALUES ('Clear Alarm', $1, 'Bool_injector_alarms', '$2',$3);" >> /tmp/command.sql
+echo ".quit" >> /tmp/command.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/command.sql
+rm -rf /tmp/command.sql

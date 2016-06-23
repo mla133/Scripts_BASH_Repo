@@ -1,0 +1,9 @@
+#!/bin/sh
+
+systemctl restart startup
+create-json-pipe.py a4m
+create-json-write.py data a4m 0
+create-json-write.py smart_injector a4m 1
+create-json-write.py smart_injector a4m 2
+create-json-write.py smart_injector a4m 3
+create-json-write.py smart_injector a4m 4

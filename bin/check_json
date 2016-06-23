@@ -1,0 +1,12 @@
+#!/bin/sh
+
+pgrep json_write > /home/root/pid_list
+
+echo "*********************************" > new_pid_list
+
+while read PID; do
+  grep $PID /var/tmp/a4m/PIDS/*.pid >> new_pid_list
+  grep $PID /var/tmp/a4i1/PIDS/*.pid >> new_pid_list
+done < pid_list
+
+sed "s/\/var\/tmp\/a4m\//A4M |/" new_pid_list | sed "s/\/var\/tmp\/a4i1\//A4I1 |/" | sed "s/PIDS\// /"

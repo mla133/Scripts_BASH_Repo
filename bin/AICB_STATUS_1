@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "***AICB STATUS***"
+cmd_aicb=TS
+for (( i=101; i<111; i++))
+do
+echo -n "STATUS$i$cmd_aicb = "
+echo -n "$i$cmd_aicb" > /var/tmp/a4m/socat_output_smart_injector_fifo1
+sleep 1
+cat /var/tmp/a4m/smart_injector_input_data_file1
+echo
+done

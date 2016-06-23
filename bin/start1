@@ -1,0 +1,4 @@
+#!/usr/bin/expect -f
+spawn telnet -e ! 192.168.181.76 7734
+send "SB product_id 1\r"
+expect "OK"

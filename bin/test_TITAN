@@ -1,0 +1,37 @@
+#!/bin/bash
+echo "TITAN COMM TEST"
+echo
+echo "II - (BI 001)"
+echo -n "009BI 001" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+sleep 1
+echo "POLL_TOTALS_AND_ALARMS- (ls 001)"
+echo -n "009ls 001" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+sleep 1
+echo "POLL_TOTALS- (at 001)"
+echo -n "009BI 001" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+sleep 1
+echo "POLL_ALARMS - (ac 001)"
+echo -n "009ac 001" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+sleep 1
+echo "SET_VOL_PER_INJ - (PS 001)"
+echo -n "009PS 001 0010" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+sleep 1
+echo "SET_VOL_PER_CYCLE- (AS 001 0010.0)"
+echo -n "009AS 001 0010.0" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo
+sleep 1
+echo "CLEAR_ALARMS - (AC 001 0000)"
+echo -n "009AC 001 0000" > /var/tmp/a4m/socat_output_smart_injector_fifo
+cat /var/tmp/a4m/smart_injector_input_data_file
+echo

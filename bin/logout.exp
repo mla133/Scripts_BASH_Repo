@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+spawn ssh root@192.168.180.137
+
+expect "*?assword:*"
+
+send "root\r";
+expect "*beaglebone:~#"
+send "sqlite3 /dev/shm/accu4_db_ram.sqlite < ~/logout.sql\r"
+expect "*beaglebone:~#"
