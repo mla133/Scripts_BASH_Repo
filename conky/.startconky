@@ -1,0 +1,7 @@
+#!/bin/bash
+sleep 20 &&	# 0 good for Xfce - use 20 to 30 for Gnome
+conky -c ~/Conky/conkysolar &
+conky -c ~/Conky/conkytrop &
+#conky -c ~/Conky/conkycal &
+#conky -c ~/Conky/conkymain &
+#conky -c ~/Conky/conkytodo &

@@ -1,0 +1,79 @@
+# UBUNTU-CONKY
+# A comprehensive conky script, configured for use on
+# Ubuntu / Debian Gnome, without the need for any external scripts.
+#
+# Based on conky-jc and the default .conkyrc.
+# INCLUDES:
+# - tail of /var/log/messages 
+# - netstat connections to your computer
+#
+# -- Pengo (conky@pengo.us)
+#
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_hints undecorated,below,skip_taskbar
+background no
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer yes
+use_xft yes
+
+# Update interval in seconds
+update_interval 3.0
+
+# Minimum size of text area
+minimum_size 100 10
+
+# Set Text buffer to handle Todo.txt
+text_buffer_size 2048
+
+# Draw shades?
+draw_shades yes
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 8
+
+# border margins
+border_margin 4
+
+# border width
+border_width 1
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color white
+default_shade_color black
+default_outline_color white
+
+own_window_colour brown
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#alignment top_right
+alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 10
+gap_y 10
+
+# stuff after 'TEXT' will be formatted on screen
+
+override_utf8_locale no
+xftfont Terminus:size=8
+xftalpha 0.8
+
+TEXT
+#${color orange}TODO: ${hr 2}$color
+${execpi 10 ~/todo.sh -p ls @work | fold -w100}
+

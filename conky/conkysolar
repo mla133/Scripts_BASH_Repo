@@ -1,0 +1,41 @@
+#
+# Downloads data from http://www.hamqsl.com/solar.html to show it on the 
+# desktop. 
+#
+
+background yes
+
+use_xft yes
+
+update_interval 10.0
+imlib_cache_size 0
+
+own_window yes
+own_window_type override
+own_window_transparent = yes
+
+# size of the image (width x height)
+
+# size for solar101vhf.php below
+#minimum_size 460 150
+
+# size for solarmuf.php
+#minimum_size 400 200
+
+# size for solarvhf.php
+minimum_size 160 400
+
+# Text alignment, other possible values are commented 
+alignment top_right
+
+# Gap between borders of screen and text 
+gap_x 50
+gap_y 50
+
+# stuff after 'TEXT' will be formatted on screen
+TEXT
+#${execi 300 wget http://www.hamqsl.com/solar101vhf.php -O /tmp/solar.jpg}
+
+${execi 300 wget http://www.hamqsl.com/solarvhf.php -O /tmp/solar.jpg}
+#${execi 300 wget http://www.hamqsl.com/solarmuf.php -O /tmp/solar.jpg}
+${image /tmp/solar.jpg}

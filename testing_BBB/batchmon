@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo ".mode line" >> /tmp/commands.sql
+echo ".headers ON" >> /tmp/commands.sql
+echo "select arm_no, batch_no, recipe_no, preset_vol, remain_vol from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_status, pump_status, cur_frate from arm_live_data where arm_live_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_gv from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select tran_gv from trans_arm_data where trans_arm_data_id=$1;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

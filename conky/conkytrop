@@ -1,0 +1,30 @@
+#
+# Downloads data from http://www.dxinfocentre.com/tropo.html to 
+# desktop. 
+#
+
+background yes
+
+use_xft yes
+
+update_interval 10.0
+imlib_cache_size 0
+
+own_window yes
+own_window_type override
+own_window_transparent = yes
+
+# size of the image (width x height)
+minimum_size 800 618
+
+# Text alignment, other possible values are commented 
+alignment top_right
+
+# Gap between borders of screen and text 
+gap_x 50
+gap_y 50
+
+# stuff after 'TEXT' will be formatted on screen
+TEXT
+${execi 300 wget http://www.dxinfocentre.com/tr_map/fcst/eam006.jpg -O /tmp/tropo.jpg}
+${image /tmp/tropo.jpg}

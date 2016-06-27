@@ -1,0 +1,76 @@
+#Code: Alles auswählen
+    # Hintergrund
+    background no
+
+    # Schrift
+    use_xft yes
+    xftfont terminus:size=8
+    xftalpha 0.2
+
+    # Aktualisierung und Fenster von Conky
+    update_interval 1
+    total_run_times 0         #Gesamtzahl der updates bis conky beendet wird; bei 0 laeuft endlos
+    own_window yes            #eigenes Fenster
+    #own_window_type desktop  #Art des Fenster(normal=Standard,desktop=keine Fensterdekoration,Pager,Sticky auf allen Fenstern)
+    own_window_transparent yes
+    own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+    own_window_class Conky
+    own_window_argb_visual
+    #own_window_colour         #wenn kein transparenter Hintergrund > Wahl der Hintergrundfarbe in hexadezimal(zB ffffff)
+    #own_window_title          #manuelles setzen des Fensternamen, Standard ist <hostname> -conky
+
+    # Buffers
+    double_buffer yes          #bei eigenem Fenster, damit X-Server-Buffer nicht zu gross und kein Flackern auftritt
+    no_buffers yes             #damit der Arbeitsspeicher nicht überlaeuft
+
+    # Aktualisierungsfrequenz von Prozessor und Netz
+    cpu_avg_samples 2
+    net_avg_samples 2
+
+    # Rahmen
+    draw_shades no           #Schatten um Text
+    draw_outline no
+    draw_borders no          #Rahmen um Text
+    draw_graph_borders no    #Rahmen um Graphen
+    border_inner_margin 0    #Rahmenabstand in Pixeln
+    border_outer_margin 0    #dito
+    stippled_borders         #Abstaende gestrichelter Rahmen in Pixeln
+
+    # Farben
+    default_color white      #Ändern der Standardfarbe bei dunklen Hintergründen
+    default_color black      #Ändern der Standardfarbe bei hellen Hintergründen
+    #color0 ffffff           #Beispiele
+    #color1 b22222
+
+
+    # Alignment              #Ausrichtung auf dem Bildschirm
+    #alignment top_left      #tl
+    #alignment top_right     #tr
+    #alignment top_middle    #tm
+    #alignment bottom_left   #bl
+    #alignment bottom_right  #br
+    #alignment bottom_middle #bm
+    #alignment middle_left   #ml
+    #alignment middle_right  #mr
+    #alignment middle_middle #mm
+    alignment mm
+
+
+    uppercase no             #Grossbuchstaben
+    #use_spacer yes          #nur mit Mono-Schriften, setzt Abstaende, damit das eine Objekt nicht das Andere verschiebt
+    text_buffer_size 4096    #
+    imlib_cache_size 0
+
+    # Fenstergrösse
+    minimum_size 320 320     #minimale Fenstergrösse in Pixeln
+    #maximum_width 220       #maximale Breite in Pixeln
+    gap_x 110                #Einstellung wenn conky oben
+    gap_y 10                 #Einstellung wenn conky unten
+
+
+    lua_load ~/clock/scripts/clock3.lua
+    lua_draw_hook_pre clock
+
+    TEXT
+    #Ja, und arbeite hier mal mit offset oder voffset zum platzieren auf dem Desk
+    #${time %A}

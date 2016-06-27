@@ -1,0 +1,62 @@
+# conky config
+# taskbar layout
+background no
+
+# position
+alignment ml
+gap_x 250
+gap_y 20
+minimum_size 150 200
+#maximum_width 1680
+update_interval 1
+ 
+# font
+override_utf8_locale yes
+use_xft yes
+xftfont mono:size=10
+xftalpha 0.8
+ 
+# color
+color0 1994d1
+color1 63b6e0
+color2 ff8c00
+default_color white
+#default_outline_color white
+#default_shade_color white
+ 
+ 
+# misc
+own_window yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_type desktop
+own_window_class Conky
+own_window_argb_visual
+cpu_avg_samples 1
+double_buffer yes
+net_avg_samples 1
+no_buffers yes
+short_units yes
+
+format_human_readable
+
+TEXT
+${color0} ${font K22 Plural:size=62} ${time %H:%M} ${font} ${color}
+${voffset 3}
+${color1} ${offset 145} ${voffset -5} ${font play:size=10} OnAir: ${uptime_short} ${font} ${color}
+${color1} ${offset 20}${voffset -25} ${font K22 Plural:size=60} ${time %d} ${font} ${color}
+${font play:size=16} ${offset 152} ${voffset -35} ${time %B} ${font}
+${color1} ${font play:size=12} ${offset 155} ${time %A} ${font} ${color}
+
+${offset 100} ${font play:size=10} RAM ${alignr 60} $memperc% ${font}
+${offset 100} ${font play:size=10} CPU ${alignr 69} ${cpu cpu0}%${offset 10}${cpu cpu1}% ${font}
+${offset 100} ${font play:size=10} DWN ${alignr 60} ${downspeedf eth0} k/s ${font}
+${offset 100} ${font play:size=10} UP  ${alignr 60} ${upspeedf eth0} k/s ${font}
+
+${color}${font Luxi Mono:size=11}
+${offset 110}${execpi 60 MONAT=`date +%m`; MONAT_ALT=`expr $MONAT - 1`; JAHR=`date +%Y`; cal -s $MONAT_ALT $JAHR | sed 's/^//'}
+
+${offset 110}${execpi 60 DJS=`date +%_d`; cal -s | sed '8d' | sed 's/$/                   /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^//' | sed /" $DJS "/s/" $DJS "/" "'${color2}'"$DJS"'${color}'" "/}
+
+
+${offset 110}${execpi 60 MONAT=`date +%m`; MONAT_NEU=`expr $MONAT + 1`; JAHR=`date +%Y`; cal -s $MONAT_NEU $JAHR | sed 's/^//'}
