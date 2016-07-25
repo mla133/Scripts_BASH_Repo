@@ -1,0 +1,48 @@
+    1  clear
+    2  ls
+    3  cd Desktop
+    4  ls
+    5  cd ..
+    6  ls
+    7  rtl_test
+    8  ifconfig
+    9  sudo apt-get install less
+   10  sudo apt-get install update && sudo apt-get upgrade
+   11  sudo apt-get update && sudo apt-upgrade
+   12  sudo apt-get upgrade
+   13  clear
+   14  ls
+   15  sudo apt-get install git
+   16  sudo apt-get install make
+   17  sudo apt-get install cmake
+   18  sudo apt-get install libusb-1.0-0-dev
+   19  git clone git://git.osmocom.org/rtl-sdr.git
+   20  ls
+   21  git clone https://github.com/keenerd/rtl-sdr.git
+   22  ls
+   23  cd rtl-sdr/
+   24  ls
+   25  mkdir build
+   26  cd build
+   27  cmake ../ -DINSTALL_UDEV_RULES=ON
+   28  make
+   29  sudo make install
+   30  sudo ldconfig
+   31  clear
+   32  rtl_test
+   33  cd /etc/modprobe.d/
+   34  ls
+   35  touch rtlsdr.conf
+   36  sudo touch rtlsdr.conf
+   37  sudo vim rtlsdr.conf
+   38  clear
+   39  cd
+   40  sudo reboot
+   41  clear
+   42  ls
+   43  rtl_test
+   44  clear
+   45  ifconfig
+   46  rtl_tcp -a 192.168.180.75
+   47  history
+   48  history > history.txt
