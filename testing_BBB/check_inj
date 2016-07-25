@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo ".headers ON" >> /tmp/commands.sql
+echo "select injector_config_id, inj_arm, inj_type, inj_k_factor, inj_meter_factor from injector_config where  inj_type>0;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /media/data/database/accu4_db.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

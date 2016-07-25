@@ -1,0 +1,6 @@
+#!/bin/sh
+
+killall node
+sleep 2
+export `cat /etc/systemd/node.env`
+node /home/root/Accuload4/HMI/app.js BBB &
