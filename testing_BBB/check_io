@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo ".headers ON" >> /tmp/commands.sql
+echo "select * from dig_in_config where dig_in_func>0;" >> /tmp/commands.sql
+echo "select * from dig_out_config where dig_out_func>0;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /media/data/database/accu4_db.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

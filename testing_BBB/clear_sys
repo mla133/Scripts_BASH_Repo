@@ -9,6 +9,7 @@ echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VAL
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'addPak2_powerfail');" >> /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'mram_alarm');" >> /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'a4m_comm_failure');" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'a4b_comm_failure');" >> /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'hmi_a_failure');" >> /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'hmi_b_failure');" >> /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no,cmd_arg_1, cmd_arg_2) VALUES ('Clear Alarm', 1, 'Bool_system_alarms', 'a4m_firmware_error');" >> /tmp/commands.sql
