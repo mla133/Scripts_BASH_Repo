@@ -2,19 +2,24 @@
 
 import smtplib
 
-sender = 'from@fromdomain.com'
-receivers = ['to@todomain.com']
+sender = 'matthew.l.allen@gmail.com'
+receivers = ['kc3eys@gmail.com']
+username = 'matthew.l.allen'
+password = 'i@ms1mple'
 
-message = """From: From Person <from@fromdomain.com>
-To: To Person <to@todomain.com>
+message = """From: BBB <BBB@localhost>
+To: KC3EYS <kc3eys@gmail.com>
 Subject: SMTP e-mail test
 
 This is a test e-mail message.
 """
 
 try:
-   smtpObj = smtplib.SMTP('localhost')
+   smtpObj = smtplib.SMTP('smtp.gmail.com:587')
+   smtpObj.ehlo()
+   smtpObj.starttls()
+   smtpObj.login(username,password)
    smtpObj.sendmail(sender, receivers, message)         
    print "Successfully sent email"
-except SMTPException:
+except:
    print "Error: unable to send email"
