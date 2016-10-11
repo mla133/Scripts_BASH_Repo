@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ -z "$1" ]; then
+	echo "usage: $0 <recipe_no> <preset_amt> <arm_no>"
+	exit
+fi
 
 echo ".timeout 10000" > /tmp/commands.sql
 echo "update batch_setup set recipe_no=$1, entered_preset=$2 where arm_no=$3;" >> /tmp/commands.sql

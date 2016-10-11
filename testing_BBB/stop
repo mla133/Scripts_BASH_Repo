@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ -z "$1" ];then
+	echo "Usage: $0 <arm_no>"
+	exit
+fi
 
 echo ".timeout 10000" > /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, arm_no) VALUES ('Stop Arm', $1);" >> /tmp/commands.sql
