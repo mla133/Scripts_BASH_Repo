@@ -1,8 +1,11 @@
 #!/bin/sh
-
+if [ -z "$1" ]; then
+	echo "usage: $0 <inj_no> <inj_vol> <no_of_inj>"
+	exit
+fi
 
 echo ".timeout 10000" > /tmp/commands.sql
-echo "INSERT INTO delivery_queue (delivery_cmd, cmd_arg_1, cmd_arg_2, cmd_arg_3) VALUES ('Prove Injector', $1, $2, 1);" >> /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, cmd_arg_1, cmd_arg_2, cmd_arg_3) VALUES ('Prove Injector', $1, $2, $3);" >> /tmp/commands.sql
 echo ".quit" >> /tmp/commands.sql
 sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
 rm -rf /tmp/commands.sql

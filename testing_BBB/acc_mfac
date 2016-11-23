@@ -1,5 +1,8 @@
 #!/bin/sh
-
+if [ -z "$1" ]; then
+	echo "usage: $0 <inj_no>"
+	exit
+fi
 
 echo ".timeout 10000" > /tmp/commands.sql
 echo "INSERT INTO delivery_queue (delivery_cmd, cmd_arg_1) VALUES ('Accept New Mfac', $1);" >> /tmp/commands.sql

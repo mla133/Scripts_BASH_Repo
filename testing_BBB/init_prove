@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ -z "$1" ]; then
+	echo "usage: $0 <inj_no>"
+	exit
+fi
 
 
 echo ".timeout 10000" > /tmp/commands.sql
