@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -z "$1" ];then
+	echo "Usage: $0 <dig_out_no> <state>"
+	exit
+fi
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo "INSERT INTO delivery_queue (delivery_cmd, arm_no) VALUES ('Set Dig Out', $1, $2);" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql
