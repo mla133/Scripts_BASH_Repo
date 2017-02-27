@@ -5,9 +5,10 @@ echo ".mode column" >> /tmp/commands.sql
 echo ".headers ON" >> /tmp/commands.sql
 echo "select arm_no, trans_no, batch_no, recipe_no, preset_vol, remain_vol from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
 echo "select batch_status, pump_status, cur_frate from arm_live_data where arm_live_data_id=$1;" >> /tmp/commands.sql
-echo "select batch_iv, batch_gv, batch_gst, batch_gsv, batch_add2, batch_add4, batch_add5 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
-echo "select pulse_in_assignment, pulse_in_count from pulse_in_diag where pulse_in_diag_id>6 AND pulse_in_diag_id<9;" >> /tmp/commands.sql
-echo "select injector_nonresets_id, additive_non_resetable_total, additive_non_resetable_total_leak from injector_nonresets where injector_nonresets_id<6;" >> /tmp/commands.sql
+echo "select batch_iv, batch_gv, batch_gst, batch_gsv from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select batch_add1, batch_add2, batch_add3 from batch_data where batch_data_id=$1;" >> /tmp/commands.sql
+echo "select pulse_in_assignment, pulse_in_count from pulse_in_diag where pulse_in_diag_id<13;" >> /tmp/commands.sql
+echo "select injector_nonresets_id, additive_non_resetable_total, additive_non_resetable_total_leak from injector_nonresets where injector_nonresets_id<4;" >> /tmp/commands.sql
 echo "select injector_data_id, live_vol_per_inj, live_vol_per_cycle from injector_data where injector_data_id<6;" >> /tmp/commands.sql
 echo ".quit" >> /tmp/commands.sql
 sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql

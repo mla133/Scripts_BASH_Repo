@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo ".mode column" > /tmp/commands.sql
+echo ".headers ON" >> /tmp/commands.sql
+echo "select * from Bool_dig_out_status where Bool_dig_out_status_id<9;" >> /tmp/commands.sql
+echo "select * from Bool_dig_in_status where Bool_dig_in_status_id<5;" >> /tmp/commands.sql
+echo "select * from pulse_in_diag where pulse_in_diag_id<5;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /dev/shm/accu4_db_ram.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql

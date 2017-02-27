@@ -1,8 +1,14 @@
 #!/bin/sh
+killall json_write
+sleep 2
+json_write data a4m &
+json_write data a4b &
+json_write mtr_inj a4m &
+json_write mtr_inj a4b &
 
-/usr/bin/create-json-pipe.sh data a4m > /dev/null
-/usr/bin/create-json-pipe.sh data a4b > /dev/null
-/usr/bin/create-json-pipe.sh mtr_inj a4m > /dev/null
-/usr/bin/create-json-pipe.sh mtr_inj a4b > /dev/null
-/usr/bin/create-json-pipe.sh mtr_inj a4i1 > /dev/null
-/usr/bin/create-json-pipe.sh mtr_inj a4i2 > /dev/null
+#/usr/bin/create-json-pipe.sh data a4m > /dev/null
+#/usr/bin/create-json-pipe.sh data a4b > /dev/null
+#/usr/bin/create-json-pipe.sh mtr_inj a4m > /dev/null
+#/usr/bin/create-json-pipe.sh mtr_inj a4b > /dev/null
+#/usr/bin/create-json-pipe.sh mtr_inj a4i1 > /dev/null
+#/usr/bin/create-json-pipe.sh mtr_inj a4i2 > /dev/null
