@@ -5,6 +5,8 @@ json_write data a4m &
 json_write data a4b &
 json_write mtr_inj a4m &
 json_write mtr_inj a4b &
+json_write mtr_inj a4i1 &
+json_write mtr_inj a4i2 &
 
 #/usr/bin/create-json-pipe.sh data a4m > /dev/null
 #/usr/bin/create-json-pipe.sh data a4b > /dev/null
