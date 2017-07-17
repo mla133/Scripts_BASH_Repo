@@ -66,19 +66,18 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+ if [ -x /usr/bin/dircolors ]; then
+   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
     alias ls='ls --color=auto'
     alias ac4='cd ~/projects/acculoadiv/delivery/src/injector'
     alias a4m='cd /var/tmp/a4m'
     alias tiva='cd ~/projects/acculoadiv/tiva/liop/Debug'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
     alias grepc='grep -ihHnr'
+
 # alias for a URL encoder for web addresses
     alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
     alias searchburst="swish-e -f burstdocs.index -m 10 -H 0 -x '%p\n' -w"
@@ -86,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 # aliases for network drives
     alias sdrive='cd ~/.gvfs/dept\ on\ eri1netapp2/Electronics/Public/Allen'
     alias hdrive='cd ~/.gvfs/home\ on\ eri1netapp2/allenma'
-fi
+ fi
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -117,19 +116,13 @@ alias t='~/bin/todo.sh'
 alias tw='t ls @work'
 alias th='t ls @home'
 
-#
 # Environment setup for oe
-#
-
 export BB_ENV_EXTRAWHITE="MACHINE DISTRO ANGSTROM_MODE OVEROTOP OEBRANCH USERBRANCH TITOOLSDIR"
-
 export OVEROTOP="${HOME}/overo-oe"
 export OEBRANCH="${OVEROTOP}/org.openembedded.dev"
 export USERBRANCH="${OVEROTOP}/user.collection"
-
 export PATH="${OVEROTOP}/bitbake/bin:$PATH"
 export BBPATH="${OVEROTOP}/build:${USERBRANCH}:${OEBRANCH}"
-
 export TITOOLSDIR="${OVEROTOP}/ti"
 
 # Export DEBUG variable for pathing to delivery/Debug
@@ -139,6 +132,7 @@ export DEBUG=/home/local/FMCNET/allenma/DevProjects/revelation/revelation/Debug
 export ARM_TOOLS=/home/local/FMCNET/allenma/overo-oe/tmp/sysroots/i686-linux/usr/armv7a/bin
 umask 0002
 
-#
 # end oe setup
-#
+
+# Add my color scheme to BASH (lightens up the directory from dark blue to cyan
+source ~/.mycolors
