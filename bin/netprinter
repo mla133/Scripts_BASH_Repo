@@ -1,0 +1,2 @@
+#!/bin/bash
+lp -d SHARP-MX-3501N -o prettyprint $1
