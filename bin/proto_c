@@ -6,7 +6,8 @@ if [ -z "$1" ]; then
   exit
 fi
 
-DEST=~/pseudo/$1
+CWD=$(pwd)
+DEST=$CWD/$1
 C_FILE=$DEST/$1.c
 MAKEFILE=$DEST/makefile
 DATE_STAMP=$(date +%Y%m%d_%H%M%S)
