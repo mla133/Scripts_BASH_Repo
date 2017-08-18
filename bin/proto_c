@@ -1,0 +1,54 @@
+#!/bin/bash
+# Might need to be run as root
+
+if [ -z "$1" ]; then
+  echo usage: $0 project_name
+  exit
+fi
+
+DEST=~/pseudo/$1
+C_FILE=$DEST/$1.c
+MAKEFILE=$DEST/makefile
+DATE_STAMP=$(date +%Y%m%d_%H%M%S)
+
+mkdir -pv $DEST > /dev/null  # ~/pseudo/<proj_name> 
+
+if [ ! -e $C_FILE ]; then    # create a template C file for editing
+  echo -e "// $1.c -- created by proto_c BASH script" >> $C_FILE
+  echo -e "// Created on: $DATE_STAMP" >> $C_FILE
+  echo -e "#include <stdio.h>" >> $C_FILE
+  echo -e "" >> $C_FILE
+  echo -e "int main()" >> $C_FILE
+  echo -e "{" >> $C_FILE
+  echo -e "" >> $C_FILE
+  echo -e "\tprintf(\"Hello World!!! -- $C_FILE \\\n\");" >> $C_FILE
+  echo -e "" >> $C_FILE
+  echo -e "\treturn 0;" >> $C_FILE
+  echo -e "" >> $C_FILE
+  echo -e "}" >> $C_FILE
+
+echo "$C_FILE created"
+
+# Create a generic makefile for building
+  echo -e "CC = gcc" >> $MAKEFILE
+  echo -e "OBJ = $1.o" >> $MAKEFILE
+  echo -e "TARGET = $1" >> $MAKEFILE
+  echo -e "" >> $MAKEFILE
+  echo -e "%.o: %.c \$(DEPS)" >> $MAKEFILE
+  echo -e "\t\$(CC) -c -o \$@ \$< \$(CFLAGS)" >> $MAKEFILE
+  echo -e "" >> $MAKEFILE
+  echo -e "\$(TARGET): \$(OBJ)" >> $MAKEFILE
+  echo -e "\tgcc -o \$@ \$^ \$(CFLAGS)" >> $MAKEFILE
+  echo -e "" >> $MAKEFILE
+  echo -e ".PHONY: clean" >> $MAKEFILE
+  echo -e "" >> $MAKEFILE
+  echo -e "clean:" >> $MAKEFILE
+  echo -e "\trm -f *.o \$(TARGET)" >> $MAKEFILE
+fi
+
+echo "$MAKEFILE created"
+cd $DEST
+ls
+cat $C_FILE
+make
+./$1
