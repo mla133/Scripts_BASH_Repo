@@ -18,6 +18,7 @@ if [ ! -e $C_FILE ]; then    # create a template C++ file for editing
   echo -e "// Created on: $DATE_STAMP" >> $C_FILE
   echo -e "" >> $C_FILE
   echo -e "#include <iostream>" >> $C_FILE
+  echo -e "using namespace std;" >> $C_FILE
   echo -e "" >> $C_FILE
   echo -e "int main()" >> $C_FILE
   echo -e "{" >> $C_FILE
