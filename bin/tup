@@ -1,2 +1,4 @@
 #!/bin/bash
-dropbox_uploader.sh upload ~/Dropbox/todo.txt /
+dropbox_uploader.sh upload ~/.todo/todo.txt /
+dropbox_uploader.sh upload ~/.todo/done.txt /
+dropbox_uploader.sh upload ~/.todo/report.txt /

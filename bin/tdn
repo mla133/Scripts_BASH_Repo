@@ -1,2 +1,4 @@
 #!/bin/bash
-dropbox_uploader.sh download /todo.txt ~/Dropbox/todo.txt
+dropbox_uploader.sh download /todo.txt ~/.todo/todo.txt
+dropbox_uploader.sh download /todo.txt ~/.todo/done.txt
+dropbox_uploader.sh download /todo.txt ~/.todo/report.txt
