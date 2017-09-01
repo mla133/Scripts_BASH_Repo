@@ -1,0 +1,9 @@
+#!/bin/sh
+# Polls data from /var/lib/Evolution/Revel_datalog.sqlite for testing patch 01.00.02 for Signature Flight Support hotfix #128
+
+echo ".timeout 10000" > /tmp/commands.sql
+echo ".headers ON" >> /tmp/commands.sql
+echo "select trans_no, trans_gst, end_mtr_nr_gst, start_mtr_nr_gst from trans where trans_no>6;" >> /tmp/commands.sql
+echo ".quit" >> /tmp/commands.sql
+sqlite3 /var/lib/Evolution/Revel_datalog.sqlite < /tmp/commands.sql
+rm -rf /tmp/commands.sql
