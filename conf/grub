@@ -24,6 +24,7 @@ GRUB_TERMINAL=console
 # you can see them in real GRUB with the command `vbeinfo'
 #GRUB_GFXMODE=640x480
 #GRUB_GFXMODE=2560x1600
+#GRUB_GFXPAYLOAD_LINUX=1366x768x24
 GRUB_GFXPAYLOAD_LINUX=1280x1024x24
 
 # Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to Linux
