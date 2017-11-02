@@ -45,11 +45,17 @@ echo "$C_FILE created"
   echo -e "" >> $MAKEFILE
   echo -e "clean:" >> $MAKEFILE
   echo -e "\trm -f *.o \$(TARGET)" >> $MAKEFILE
+  echo -e "" >> $MAKEFILE
+  echo -e "docs:" >> $MAKEFILE
+  echo -e "\tdoxygen Doxyfile" >> $MAKEFILE
+  echo -e "" >> $MAKEFILE
 fi
 
 echo "$MAKEFILE created"
 cd $DEST
-ls
+echo "Doxyfile created"
+cp ~/bin/Doxyfile $DEST
+ls --color
 cat $C_FILE
 make
 ./$1
