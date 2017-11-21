@@ -53,8 +53,8 @@ fi
 
 echo "$MAKEFILE created"
 cd $DEST
-echo "Doxyfile created"
-cp ~/bin/Doxyfile $DEST
+wget --no-check-certificate --content-disposition https://raw.githubusercontent.com/mla133/Scripts_BASH_Repo/master/conf/Doxyfile
+echo "Doxyfile downloaded"
 ls --color
 cat $C_FILE
 make
