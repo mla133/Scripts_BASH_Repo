@@ -38,6 +38,8 @@ RC_cmd = 'RC'
 inj_addr = 0
 
 #         0   ,      1,   2,   3,   4, 5,        6, 7, 8, 9,10,11,12,   13,  14,15,16,17
+#      PW CMD ,     10,  11,  20,  21,22,       23,24,25,26,27
+
 inj =  [
         # A4M
         ['301', 5000.0, 1.0, 0.0, 0.0, 0, 3785.412, 0, 0, 2, 0, 0, 0, 25.0, 0.0, 0, 0, 0],
@@ -119,8 +121,10 @@ while True:
                             inj[inj_addr][2] = float(value)
                         if param == '20':
                             inj[inj_addr][3] = float(value)
-                        if param == '20':
+                        if param == '21':
                             inj[inj_addr][4] = float(value)
+                        if param == '22':
+                            inj[inj_addr][5] = float(value)
                         if param == '23':
                             inj[inj_addr][6] = float(value)
                         if param == '24':
@@ -129,6 +133,8 @@ while True:
                             inj[inj_addr][8] = int(value)
                         if param == '26':
                             inj[inj_addr][9] = int(value)
+                        if param == '27':
+                            inj[inj_addr][10] = int(value)
                         if param == '30':
                             inj[inj_addr][13] = float(value)
                         resp = "OK" 
