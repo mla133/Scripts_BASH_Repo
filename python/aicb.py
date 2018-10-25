@@ -17,6 +17,11 @@ else:
     print "Argument needed: a4m or a4b"
     exit()
 
+if (sys.argv[2] == '1'):
+    print_output = 1
+else:
+    print_output = 0
+
 # Lists of AICB commands
 IN_cmd = 'IN'
 EQ_cmd = 'EQ'
@@ -69,7 +74,8 @@ while True:
 
 	fifo = open(fifo_path, "r")
 	for line in fifo:
-		print "\x1b[32;40mAccuLoad:  " + line + "\x1b[0m"
+                if (print_output):
+                    print "\x1b[32;40mAccuLoad:  " + line + "\x1b[0m"
 		addr = line[0:3]
                 command = line[3:5]
                 param = line[6:8]
@@ -133,8 +139,6 @@ while True:
                             inj[inj_addr][8] = int(value)
                         if param == '26':
                             inj[inj_addr][9] = int(value)
-                        if param == '27':
-                            inj[inj_addr][10] = int(value)
                         if param == '30':
                             inj[inj_addr][13] = float(value)
                         resp = "OK" 
@@ -148,8 +152,8 @@ while True:
 
 		else :
 			resp = "NO00"
-
-	print "\x1b[31;40mInjector:  " + addr + resp + "\x1b[0m"
+        if(print_output):
+            print "\x1b[31;40mInjector:  " + addr + resp + "\x1b[0m"
 	fifo.close()
 	
 	data = open(data_path, "w")
