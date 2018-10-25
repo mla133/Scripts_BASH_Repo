@@ -1,0 +1,40 @@
+#!/bin/bash
+# Might need to be run as root
+
+#if [ -z "$1" ]; then
+#  echo usage: $0 IP_ADDRESS
+#  exit
+#fi
+
+IP="192.168.181.206"
+DATE_STAMP=$(date +%Y%m%d_%H%M%S)
+DEST=~/accu4_db/$IP/$DATE_STAMP
+
+# Point to all the BeagleBone databases to be backed up
+ACCU4_DB=/var/lib/accu4/accu4_db.sqlite
+DATALOG=/var/lib/accu4/accu4_datalog.sqlite
+SCRIPT_LIST=/home/local/FMCNET/allenma/bin/script_list.txt
+
+mkdir -pv $DEST > /dev/null	# ~/accu4_db/<ip>/timestamp
+mkdir -pv $DEST/scripts > /dev/null	# ~/accu4_db/<ip>/timestamp/scripts
+mkdir -pv $DEST/SQL > /dev/null	# ~/accu4_db/<ip>/timestamp/SQL
+
+# SCP the databases to the destination on the host
+echo -ne '####			(33%)\r'
+scp root@$IP:$DATALOG $DEST >/dev/null
+echo -ne '########		(66%)\r'
+scp root@$IP:$ACCU4_DB $DEST >/dev/null
+echo -ne '############		(100%)\r'
+echo -ne '\n'
+
+# SCP the executable scripts from the BBB to a directory for backup
+# echo "Pulling some scripts from scripts_list.txt"
+# while read line
+# do
+# 	scp root@$IP:/usr/bin/$line $DEST/scripts
+# done < $SCRIPT_LIST
+
+# SCP the actual SQL scripts used by the scripts above for backup
+echo "Pulling in SQL scripts from /home/root/SQL"
+scp root@$IP:/home/root/SQL/* $DEST/SQL
+echo "Done..."
