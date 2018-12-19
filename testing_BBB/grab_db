@@ -6,7 +6,8 @@
 #  exit
 #fi
 
-IP="192.168.181.206"
+#IP="192.168.181.206"
+IP=$1
 DATE_STAMP=$(date +%Y%m%d_%H%M%S)
 DEST=~/accu4_db/$IP/$DATE_STAMP
 
