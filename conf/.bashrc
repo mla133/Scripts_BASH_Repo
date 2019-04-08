@@ -80,16 +80,23 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias grepc='grep -ihHnr'
     alias inj='cd ~/SoftwareDevelopment/acculoadiv/delivery/src/injector'
-    alias aliv='cd ~/SoftwareDevelopment/acculoadiv/ext_services/src'
+    alias aliv='cd ~/SoftwareDevelopment/acculoadiv/delivery/src'
+    alias ml='cd ~/SoftwareDevelopment/legacyproducts.microloadnet/source'
+    alias al3='cd ~/SoftwareDevelopment/legacyproducts.al3xnet/source'
     alias bld='cd ~/SoftwareDevelopment/acculoadiv/build-arm/delivery'
+    alias 8bit='cd ~/nand2tetris/projects/8bit'
+    alias hwsim='/home/user/nand2tetris/tools/HardwareSimulator.sh'
 
     alias gui='sudo cp /etc/default/grub.gui /etc/default/grub && sudo update-grub && reboot'
     alias console='sudo cp /etc/default/grub.term /etc/default/grub && sudo update-grub && reboot'
 fi
 
 # Setup PROMPT variable PS1 to give us a nice prompt
-# export PS1='\e[31;40m(\@)\e[m \e[32;40m\W\e[m \e[33;40m[\j]\e[m\e[34;40m$(__git_ps1)\e[m : '
-export PS1='\e[31;40m(\@)\e[m \e[32;40m\W\e[m \e[33;40m[\j]\e[m : '
+export PS1='\e[31;40m(\@)\e[m \e[32;40m\W\e[m \e[33;40m[\j]\e[m\e[34;40m$(__git_ps1)\e[m : '
+
+if [ -n "$STY" ]; then export PS1="(screen) $PS1"; fi
+
+# export PS1='\e[31;40m(\@)\e[m \e[32;40m\W\e[m \e[33;40m[\j]\e[m : '
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
