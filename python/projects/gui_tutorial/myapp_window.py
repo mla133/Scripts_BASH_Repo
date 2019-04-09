@@ -7,15 +7,21 @@ import sys
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
+        self.windowTitleChanged.connect(self.onWindowTitleChange)
+        self.windowTitleChanged.connect(lambda x: self.my_custom_fn())
+        self.windowTitleChanged.connect(lambda x: self.my_custom_fn(x))
+        self.windowTitleChanged.connect(lambda x: self.my_custom_fn(x, 25))
+
         self.setWindowTitle("My Awesome App")
         label = QLabel("THIS IS AWESOME!!!")
         label.setAlignment(Qt.AlignCenter)
         self.setCentralWidget(label)
-        toolbar = QToolBar("My main toolbar")
-        self.addToolBar(toolbar)
 
-    def onMyToolBarButtonClick(self, s):
-        print("click", s)
+    def onWindowTitleChange(self, s):
+        print(s)
+
+    def my_custom_fn(self, a="HELLLO!", b=5):
+        print(a, b)
 
 app = QApplication(sys.argv)
 
