@@ -6,7 +6,7 @@
 from pyModbusTCP.client import ModbusClient
 import time
 
-SERVER_HOST = "192.168.181.76"
+SERVER_HOST = "192.168.180.72"
 SERVER_PORT = 502
 
 c = ModbusClient()

@@ -9,7 +9,6 @@ import sys
 # the location of my QTH Palo Alto, CA is: 37.429167, -122.138056 or
 # in degrees, minutes, and seconds: 37° 24' 49" N 122° 6' 26" W
 
-#        012345678901234567890123
 upper = 'ABCDEFGHIJKLMNOPQRSTUVWX'
 lower = 'abcdefghijklmnopqrstuvwx'
 
@@ -54,8 +53,7 @@ def test():
         ('Wellington', (-41.28333,174.745), 'RE78ir'),
         ('Newington, CT (W1AW)', (41.714775,-72.727260), 'FN31pr'),
         ('Palo Alto (K6WRU)', (37.413708,-122.1073236), 'CM87wj'),
-	('Old Home @ Erie, PA', (42.103815, -80.06641), 'EN92xc'),
-	('New Home @ Harborcreek, PA', (42.204284, -79.934272), 'FN02ae'),
+	('Home @ Erie, PA', (42.103815, -80.06641), 'EN92xc'),
     )
     print 'Running self test\n'
     passed = True
