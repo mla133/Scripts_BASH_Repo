@@ -1,0 +1,178 @@
+import sys
+import os
+import serial
+import time
+import glob
+import socket
+import commands
+
+from PySide.QtGui import *
+from PySide.QtCore import *
+
+MACRO_COMMANDS = {
+"REPEAT",
+"ARM",
+"WAITFOR",
+"DELAY",
+"END"
+}
+
+		
+class MacroEngine(QThread):
+	updateText = Signal(bytearray, str, int)
+       	testStopTest = Signal()
+        
+	def __init__(self, args = None):
+		super(MacroEngine, self).__init__()
+		print "Init"
+		self.stopFlag = False
+		self.responseStatus = 0
+		self.currentResponse = bytearray()
+
+		if args is not None:
+			self.isSerial = args[0]
+			self.currentSerial = args[1]
+			self.currentTCP = args[2]
+			self.commandBuffer = args[3]
+			self.protocol = args[4]
+
+	def stop(self):
+		self.stopFlag = True
+	
+	def stopped(self):
+		return self.stopFlag
+
+	def running(self):
+		return self.isRunning
+	
+	def setResponse(self, response):
+		self.currentResponse = response
+		self.responseStatus = True
+
+	def sendCommand(self, command):
+		byteCommand = commands.formatCommand(self.protocol ,command)
+		self.updateText.emit(byteCommand, command + "\n", len(byteCommand))
+		if(self.isSerial):
+		        self.currentSerial.write(byteCommand)
+		else:
+		        self.currentTCP.sendall(byteCommand)
+		if self.stopFlag:
+		        self.isRunning = False
+		        print "Exiting"
+		        return	
+
+		retries = 0
+		while 1:
+		        if self.stopFlag:
+		                self.isRunning = False
+		                print "Exiting"
+		                return	
+
+		        time.sleep(0.0001)
+		        if self.responseStatus == 1:
+		                self.responseStatus = 0
+		                break
+		        else:
+		                if retries <= 100000000:
+		                        retries += 1
+		                else:
+		                        print "Timeout"
+		                        self.responseStatus = 0
+		                        retires = 0
+		                        break
+		
+	def run(self):
+		print "Starting Test"
+		retries = 0
+		command = ""
+		macro_command = False
+		loop_count = 0
+		end_index = 0
+		start_index = 0
+		tmp_start_index = 0
+		tmp_stop_index = 0
+		delay_time = 0.0
+		total_time = 0.0
+		i = 0
+		not_flag = False
+
+		while i < len(self.commandBuffer):
+			cmd = self.commandBuffer[i]
+
+	                if self.stopFlag:
+	                        self.isRunning = False
+	                        print "Exiting"
+	                        return
+			for j in MACRO_COMMANDS:
+				if cmd.find(j, 0, len(j)) == 0:
+					macro_command = j
+					break
+
+			if len(macro_command) > 0:
+				if macro_command is "REPEAT":
+					print "Found Repeat"
+					loop_count = int(cmd[len("REPEAT "):])
+					print loop_count
+
+					#Find the Indexes
+					start_index = i
+				
+				elif macro_command is "END":
+					print "Found End"
+					loop_count -= 1
+
+					if loop_count <= 0:
+						start_index = 0
+					else:
+						i = start_index
+				elif macro_command is "DELAY":
+					total_time = 0.0
+
+					delay_time = float(cmd[len("DELAY "):])
+					print delay_time
+					if delay_time <= 0.001:
+						time.sleep(0.001)
+					else:
+						while total_time < delay_time:
+							total_time += 0.001
+							time.sleep(0.001)
+							if self.stopFlag:
+								self.isRunning = False
+								print "Exiting"
+								return	
+
+				elif macro_command is "WAITFOR":
+					flag = cmd[len("WAITFOR "):]
+					if flag[0:1] == "!":
+						not_flag = True
+						flag = flag[1:]
+					else:
+						not_flag  = False
+
+					while True:
+						self.sendCommand("01RS")
+						if self.stopFlag:
+							self.isRunning = False
+							print "Exiting"
+							return	
+						if not_flag:
+							print "Not"
+							if flag not in self.currentResponse:
+								continue
+						elif flag in self.currentResponse:
+							break
+
+				macro_command = ""
+				i += 1
+
+				continue
+
+			self.sendCommand(cmd)
+			i += 1
+
+                print "Stopping Test"
+                self.isRunning = False
+                self.testStopTest.emit()
+
+		return
+
