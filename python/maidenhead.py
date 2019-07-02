@@ -53,7 +53,8 @@ def test():
         ('Wellington', (-41.28333,174.745), 'RE78ir'),
         ('Newington, CT (W1AW)', (41.714775,-72.727260), 'FN31pr'),
         ('Palo Alto (K6WRU)', (37.413708,-122.1073236), 'CM87wj'),
-	('Home @ Erie, PA', (42.103815, -80.06641), 'EN92xc'),
+	('Old Home in Erie, PA', (42.103815, -80.06641), 'EN92xc'),
+        ('Harborcreek Home', (42.204284, -79.934272), 'FN02ae'),
     )
     print 'Running self test\n'
     passed = True
@@ -61,7 +62,7 @@ def test():
         print 'Testing %s at %f %f:'%(name,latlon[0],latlon[1])
         test_grid = to_grid(latlon[0], latlon[1])
         if test_grid != grid:
-            print 'Failed '+test_grid+' should be '+grid
+            print 'Failed '+grid+' should be '+test_grid
             passed = False
         else:
             print 'Passed '+test_grid
