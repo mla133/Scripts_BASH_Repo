@@ -48,8 +48,8 @@ class MyApp(QMainWindow):
             regs = self.c.read_holding_registers(mb_reg, mb_value)
             print("Func " + str(mb_func) + ": Reg: " + str(mb_reg) + " Number: " + str(mb_value) + " " + str(regs))
         else:   
-            print("Not 2 or 3")
-            regs = "Error"
+            print("Not Func 02 or 03")
+            regs = "[ERROR] Only Functions 02 & 03 are supported currently."
 
         self.ui.results.setText(str(regs))
 
