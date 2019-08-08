@@ -25,3 +25,6 @@ data = s.recv(BUFFER_SIZE)
 s.close()
 
 print "received data:", data
+
+# Example string sent to THMI:
+# in:0249{"h":["d9","05","f4","2c","a8","43","fe","e4","ca","48","c4","d2","d7","ca","dd","a5","83","62","ae","be","7b","1e","d9","d2","a7","2b","be","39","0d","40","17","26"],"ts":422510,"seq":31192,"id":"beaglebone","type":"cmd","ins":0,"text":"GET 4"}
