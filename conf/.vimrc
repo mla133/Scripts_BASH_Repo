@@ -6,9 +6,18 @@ set number	" show line numbers
 set cursorline 	" highlight current line
 set showmatch	" highlight matching [{()}]
 set foldenable  " enable folding
-set foldmethod=syntax
+"set foldmethod=syntax
 set tabstop=4
 set shiftwidth=4
+
+" Learn VIM the hard way suggested mappings {{{
+" make comma new <leader>
+let mapleader = ","
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+" Map <JK> key combo to emulate escape key (easier on left hand)
+inoremap jk <ESC>
+" }}}
 
 " Status Line Modifications {{{
 set laststatus=2	" Always show status line
@@ -24,17 +33,23 @@ set nobackup
 set noswapfile
 set noexpandtab
 
+" CTAGS settings and mapping {{{
+" Sets Vim to search directory tree for 'tags' file (for ctags)
+set tags=./tags;/,tags;/
+" }}}
+
 " Split Mapping and settings {{{
 set splitbelow
 set splitright
 " }}}
 
-" Function Key Mapping to help with Compiling/Building {{{
+" Function Key Mapping {{{
+noremap <silent> <F2> :echo 'Current time is ' . strftime('%c')<CR>
 noremap <silent> <F4> :!start compile.bat % & pause<CR>
 noremap <silent> <F5> :!start /min build.bat & pause<CR>
 noremap <silent> <F9> : <Esc>:w<CR>:!clear;python %<CR>
-noremap <silent> <F11> :cd c:\Users\allenma\Desktop\GVIM\Data\settings<CR> 
-noremap <silent> <F12> :cd c:\projects\legacyproducts.al3xnet\source<CR>
+noremap <silent> <F8> : <Esc>:w<CR>:!clear;scp % root@192.168.181.76:/home/root<CR>
+noremap <silent> <F10> : <Esc>:w<CR>:!clear;python3 %<CR>
 " }}}
 
 syntax on
