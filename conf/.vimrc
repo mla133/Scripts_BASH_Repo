@@ -1,14 +1,18 @@
 set nocompatible
 filetype plugin on
-"set term=ansi
 set title
 set number	" show line numbers
 set cursorline 	" highlight current line
 set showmatch	" highlight matching [{()}]
 set foldenable  " enable folding
-"set foldmethod=syntax
 set tabstop=4
 set shiftwidth=4
+set nobackup
+set noswapfile
+set noexpandtab
+
+syntax on
+hi Comment term=none ctermfg=green ctermbg=darkgray guifg=Gray
 
 " Learn VIM the hard way suggested mappings {{{
 " make comma new <leader>
@@ -29,10 +33,6 @@ set statusline+=\ Column:\ %c
 "set statusline+=\ %y
 " }}}
 
-set nobackup
-set noswapfile
-set noexpandtab
-
 " CTAGS settings and mapping {{{
 " Sets Vim to search directory tree for 'tags' file (for ctags)
 set tags=./tags;/,tags;/
@@ -52,13 +52,12 @@ noremap <silent> <F8> : <Esc>:w<CR>:!clear;scp % root@192.168.181.76:/home/root<
 noremap <silent> <F10> : <Esc>:w<CR>:!clear;python3 %<CR>
 " }}}
 
-syntax on
-hi Comment term=none ctermfg=green ctermbg=darkgray guifg=Gray
-
+" Search Highlighting {{{
 se hlsearch
 " Ctrl-L clears the highlight from the last search
 noremap <C-l> :nohlsearch<CR><C-l>
 noremap! <C-l> <ESC>:nohlsearch<CR><C-l>
+" }}}
 
 " Vimscript file settings (use 'za' to fold/unfold this) {{{
 augroup filetype_vim
