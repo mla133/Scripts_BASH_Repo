@@ -1,0 +1,189 @@
+EvoMate/DBRevel.h:12: *  @section LICENSE
+EvoMate/MainFrm.h:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/vlcalc.h:12: *  @section LICENSE
+EvoMate/targetver.h:5:// License terms to copy, use or distribute the Fluent UI are available separately.
+EvoMate/DBCore.h:10: *  @section LICENSE
+EvoMate/criticals.h:11: *  @section LICENSE
+EvoMate/sys_crits.cpp:10: *  @section LICENSE
+EvoMate/EvoMate.cpp:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/mtr_crits.cpp:10: *  @section LICENSE
+EvoMate/ChildFrm.cpp:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/stdafx.h:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/EvoDoc.cpp:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/ChildFrm.h:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/stdafx.cpp:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/CTPL_calc.h:12: *  @section LICENSE
+EvoMate/DBVar.h:13: *  @section LICENSE
+EvoMate/EvoMate.h:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+Binary file EvoMate/Revel_db.sqlite matches
+Binary file EvoMate/DefaultETR.dat matches
+EvoMate/MainFrm.cpp:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/criticals.cpp:12: *  @section LICENSE
+EvoMate/EvoDoc.h:5:// License terms to copy, use or distribute the Fluent UI are available separately.  
+EvoMate/db_access.h:13: *  @section LICENSE
+EvoDBTest/Properties/AssemblyInfo.cs:13:[assembly: AssemblyCopyright("Copyright © FMC Technologies 2013")]
+EvoMate/DBRevel.h:14: *  Copyright 2011 FMC Technologies Measurement Solutions, Inc.
+EvoMate/DBRevel.h:20:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/DBRevel.h:23:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/MainFrm.h:9:// Copyright (C) Microsoft Corporation
+EvoMate/vlcalc.h:14: *  Copyright 2011 FMC Technologies Measurement Solutions, Inc.
+EvoMate/vlcalc.h:21:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/vlcalc.h:24:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/errlogvw.h:3:// Copyright 1998 Smith Meter, Inc.  All rights reserved
+EvoMate/targetver.h:9:// Copyright (C) Microsoft Corporation
+EvoMate/DBCore.h:12: *  Copyright 2011 FMC Technologies Measurement Solutions, Inc.
+EvoMate/DBCore.h:18:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/DBCore.h:21:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/criticals.h:13: *  Copyright 2012 FMC Technologies Measurement Solutions, Inc.
+EvoMate/criticals.h:19:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/criticals.h:22:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/emulator.h:3:// Copyright 1998 Smith Meter, Inc.  All rights reserved
+EvoMate/DbSqlite.h:33: * original copyright message.
+Binary file EvoMate/DbSqlite.h matches
+EvoMate/sys_crits.cpp:12: *  Copyright 2012 FMC Technologies Measurement Solutions, Inc.
+EvoMate/sys_crits.cpp:19:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/sys_crits.cpp:22:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/progress.h:4:// Copyright 1998.
+EvoMate/EvoMate.cpp:9:// Copyright (C) Microsoft Corporation
+EvoMate/plist_vw.cpp:4:// Copyright (C) 1992-1995 Microsoft Corporation
+EvoMate/mtr_crits.cpp:12: *  Copyright 2012 FMC Technologies Measurement Solutions, Inc.
+EvoMate/mtr_crits.cpp:19:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/mtr_crits.cpp:22:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/ChildFrm.cpp:9:// Copyright (C) Microsoft Corporation
+EvoMate/stdafx.h:9:// Copyright (C) Microsoft Corporation
+EvoMate/EvoDoc.cpp:9:// Copyright (C) Microsoft Corporation
+EvoMate/DbSqlite.cpp:31: * original copyright message.
+Binary file EvoMate/DbSqlite.cpp matches
+EvoMate/hlp/HTMLDefines.h:311:// Copyright (C) Microsoft Corporation
+EvoMate/hlp/hid_app_about.htm:1:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><HTML><HEAD><META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252"><TITLE>About EvoMate</TITLE></HEAD>EvoMate - the companion programming tool for the FMC Technologies Evolution Truck Register.http://www.fmctechnologies.com<BODY><P><A NAME="hid_app_about"></A><B>About EvoMate</B></P><P>Copyright 2015 FMC Technologies, Inc. All rights reserved..</P></BODY></HTML>
+EvoMate/sqlite3.h:4:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.h:7241:** The author disclaims copyright to this source code.  In place of
+EvoMate/progress.cpp:4:// Copyright 1998.
+EvoMate/emulator.cpp:5:// Copyright (C) 2013 FMC Smith Meter, Inc.
+EvoMate/ChildFrm.h:9:// Copyright (C) Microsoft Corporation
+EvoMate/stdafx.cpp:9:// Copyright (C) Microsoft Corporation
+EvoMate/CTPL_calc.h:14: *  Copyright 2011 FMC Technologies Measurement Solutions, Inc.
+EvoMate/CTPL_calc.h:21:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/CTPL_calc.h:24:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/sqlite3.c:32:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:86:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:553:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:7790:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:7855:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:8529:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:8787:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:9213:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:9427:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:9594:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:9881:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:12573:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:12806:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:13211:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:13228:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:13964:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:15094:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:15472:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:15561:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:15622:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:15903:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:16433:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:17122:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:17705:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:17860:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:18068:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:18421:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:18765:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:20516:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:20640:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:21197:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:22408:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:22853:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:23134:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:23187:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:30474:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:30500:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:30553:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:35636:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:36045:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:36666:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:37689:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:38199:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:38222:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:45529:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:48625:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:48644:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:49585:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:58097:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:58845:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:60002:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:63324:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:64629:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:64925:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:65386:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:71857:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:72327:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:73366:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:73624:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:73881:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:74036:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:75458:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:79709:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:80537:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:81664:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:82228:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:82479:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:86306:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:86786:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:87461:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:89179:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:90414:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:92340:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:92483:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:92503:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:93733:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:95579:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:96454:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:101300:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:101498:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:102634:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:103311:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:103661:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:104759:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:110928:** The author disclaims copyright to this source code.
+EvoMate/sqlite3.c:114416:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:115216:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:115501:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:115521:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:115553:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:115585:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:118938:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:119271:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:119563:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:119601:** The author disclaims copyright to this source code.
+EvoMate/sqlite3.c:119766:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:125521:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:126010:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:127290:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:127674:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:128321:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:128811:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:129046:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:129502:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:134920:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:136443:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:136837:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:137205:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:140572:** The author disclaims copyright to this source code.  In place of
+EvoMate/sqlite3.c:141077:** The author disclaims copyright to this source code.  In place of
+EvoMate/dir_vw.cpp:4:// Copyright (C) 1992-1995 Microsoft Corporation
+EvoMate/DBVar.h:15: *  Copyright 2011 FMC Technologies Measurement Solutions, Inc.
+EvoMate/errlogvw.cpp:4:// Copyright (C) 1998 FMC Smith Meter, Inc.
+EvoMate/plist_vw.h:4:// Copyright (C) 1992-1995 Microsoft Corporation
+EvoMate/EvoMate.h:9:// Copyright (C) Microsoft Corporation
+EvoMate/MainFrm.cpp:9:// Copyright (C) Microsoft Corporation
+EvoMate/criticals.cpp:14: *  Copyright 2012 FMC Technologies Measurement Solutions, Inc.
+EvoMate/criticals.cpp:21:    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+EvoMate/criticals.cpp:24:    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+EvoMate/dir_vw.h:4:// Copyright (C) 1992-1995 Microsoft Corporation
+EvoMate/EvoDoc.h:9:// Copyright (C) Microsoft Corporation
+EvoMate/db_access.h:15: *  Copyright 2011 FMC Technologies Measurement Solutions, Inc.

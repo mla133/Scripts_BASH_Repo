@@ -1,0 +1,174 @@
+// This MFC Samples source code demonstrates using MFC Microsoft Office Fluent User Interface 
+// (the "Fluent UI") and is provided only as referential material to supplement the 
+// Microsoft Foundation Classes Reference and related electronic documentation 
+// included with the MFC C++ library software.  
+// License terms to copy, use or distribute the Fluent UI are available separately.  
+// To learn more about our Fluent UI licensing program, please visit 
+// http://msdn.microsoft.com/officeui.
+//
+// Copyright (C) Microsoft Corporation
+// All rights reserved.
+
+// MainFrm.h : interface of the CMainFrame class
+//
+// This MFC Samples source code demonstrates using MFC Microsoft Office Fluent User Interface 
+// (the "Fluent UI") and is provided only as referential material to supplement the 
+// Microsoft Foundation Classes Reference and related electronic documentation 
+// included with the MFC C++ library software.  
+// License terms to copy, use or distribute the Fluent UI are available separately.  
+// To learn more about our Fluent UI licensing program, please visit 
+// http://msdn.microsoft.com/officeui.
+//
+// Copyright (C) Microsoft Corporation
+// All rights reserved.
+
+// MainFrm.h : interface of the CMainFrame class
+//
+ *----------------------------------------------------------------------------*
+ * SQLiteWrapper.h
+ *
+ * Copyright (C) 2004 René Nyffenegger
+ *
+ * This source code is provided 'as-is', without any express or implied
+ * warranty. In no event will the author be held liable for any damages
+ * arising from the use of this software.
+ *
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ *
+ * 1. The origin of this source code must not be misrepresented; you must not
+ *    claim that you wrote the original source code. If you use this source code
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
+ *
+ * 2. Altered source versions must be plainly marked as such, and must not be
+ *    misrepresented as being the original source code.
+ *
+ * 3. This notice may not be removed or altered from any source distribution.
+ *
+ * René Nyffenegger rene.nyffenegger@adp-gmbh.ch
+ *----------------------------------------------------------------------------*/
+// ProgressWnd.h : header file
+//
+// Written by Chris Maunder (chrismaunder@codeguru.com)
+// Copyright 1998.
+//
+// CProgressWnd is a drop-in popup progress window for use in
+// programs that a time consuming. Check out the accompanying HTML 
+// doc file for details.
+//
+// This code may be used in compiled form in any way you desire. This
+// file may be redistributed by any means PROVIDING it is not sold for
+// profit without the authors written consent, and providing that this
+// notice and the authors name is included. If the source code in 
+// this file is used in any commercial application then an email to 
+// me would be nice.
+//
+// This file is provided "as is" with no expressed or implied warranty.
+// The author accepts no liability if it causes any damage to your
+// computer, causes your pet cat to fall ill, increases baldness or
+// makes you car start emitting strange noises when you start it up.
+//
+// Expect bugs.
+// 
+// Please use and enjoy. Please let me know of any bugs/mods/improvements 
+// that you have found/implemented and I will fix/incorporate them into this
+// file. 
+
+
+#ifndef _INCLUDE_PROGRESSWND_H
+#define _INCLUDE_PROGRESSWND_H
+
+
+#define UWM_PROGRESS_WND_ACTIVE WM_USER + 568
+#define UWM_PROGRESS_WND_INACTIVE WM_USER + 569
+
+/////////////////////////////////////////////////////////////////////////////
+// inputvw.cpp : implementation file
+//
+// This is a part of the Microsoft Foundation Classes C++ library.
+// Copyright (C) 1992-1995 Microsoft Corporation
+// All rights reserved.
+//
+// This source code is only intended as a supplement to the
+// Microsoft Foundation Classes Reference and related
+// electronic documentation provided with the library.
+// See these sources for detailed information regarding the
+// Microsoft Foundation Classes product.
+// This MFC Samples source code demonstrates using MFC Microsoft Office Fluent User Interface 
+// (the "Fluent UI") and is provided only as referential material to supplement the 
+// Microsoft Foundation Classes Reference and related electronic documentation 
+// included with the MFC C++ library software.  
+// License terms to copy, use or distribute the Fluent UI are available separately.  
+// To learn more about our Fluent UI licensing program, please visit 
+// http://msdn.microsoft.com/officeui.
+//
+// Copyright (C) Microsoft Corporation
+// All rights reserved.
+
+// stdafx.h : include file for standard system include files,
+// or project specific include files that are used frequently,
+// but are changed infrequently
+/*
+** 2001 September 15
+**
+** The author disclaims copyright to this source code.  In place of
+** a legal notice, here is a blessing:
+**
+**    May you do good and not evil.
+**    May you find forgiveness for yourself and forgive others.
+**    May you share freely, never taking more than you give.
+**
+*************************************************************************
+** This header file defines the interface that the SQLite library
+** presents to client programs.  If a C-function, structure, datatype,
+** or constant definition does not appear in this file, then it is
+** not a published API of SQLite, is subject to change without
+** notice, and should not be referenced by programs that use SQLite.
+**
+** Some of the definitions that are in this file are marked as
+** "experimental".  Experimental interfaces are normally new
+** features recently added to SQLite.  We do not anticipate changes
+** to experimental interfaces but reserve the right to make minor changes
+** if experience from use "in the wild" suggest such changes are prudent.
+**
+** The official C-language API documentation for SQLite is derived
+** from comments in this file.  This file is the authoritative source
+** on how SQLite interfaces are suppose to operate.
+**
+** The name of this file under configuration management is "sqlite.h.in".
+** The makefile makes some minor changes to this file (such as inserting
+** the version number) and changes its name to "sqlite3.h" as
+** part of the build process.
+*/
+// ProgressWnd.cpp : implementation file
+//
+// Written by Chris Maunder (chrismaunder@codeguru.com)
+// Copyright 1998.
+//
+// CProgressWnd is a drop-in popup progress window for use in
+// programs that are time consuming. Check out the header file
+// or the accompanying HTML doc file for details.
+//
+// This code may be used in compiled form in any way you desire. This
+// file may be redistributed by any means PROVIDING it is not sold for
+// profit without the authors written consent, and providing that this
+// notice and the authors name is included. If the source code in
+// this file is used in any commercial application then an email to
+// me would be nice.
+//
+// This file is provided "as is" with no expressed or implied warranty.
+// The author accepts no liability if it causes any damage to your
+// computer, causes your pet cat to fall ill, increases baldness or
+// makes you car start emitting strange noises when you start it up.
+//
+// Expect bugs.
+//
+// Please use and enjoy. Please let me know of any bugs/mods/improvements
+// that you have found/implemented and I will fix/incorporate them into this
+// file.
+//
+// Updated May 18 1998 - added PeekAndPump function to allow modal operation,
+//                       with optional "Cancel on ESC" (Michael <mbh-ep@post5.tele.dk>)
+//
