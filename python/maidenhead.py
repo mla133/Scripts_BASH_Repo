@@ -38,10 +38,10 @@ def to_grid(dec_lat, dec_lon):
     return grid_lon_sq + grid_lat_sq + grid_lon_field + grid_lat_field + grid_lon_subsq + grid_lat_subsq
 
 def usage():
-    print 'This script takes two arguments, decimal latitude and longitude.'
-    print 'Example for Newington, Connecticut (W1AW):'
-    print 'python maidenhead.py 41.714775 -72.727260'
-    print 'returns: FN31pr'
+    print('This script takes two arguments, decimal latitude and longitude.')
+    print( 'Example for Newington, Connecticut (W1AW):')
+    print('python maidenhead.py 41.714775 -72.727260')
+    print('returns: FN31pr')
 
 def test():
     # First four test examples are from "Conversion Between Geodetic and Grid Locator Systems",
@@ -56,27 +56,29 @@ def test():
 	('Old Home in Erie, PA', (42.103815, -80.06641), 'EN92xc'),
         ('Harborcreek Home', (42.204284, -79.934272), 'FN02ae'),
     )
-    print 'Running self test\n'
+    print('Running self test\n')
     passed = True
     for name,latlon,grid in test_data:
-        print 'Testing %s at %f %f:'%(name,latlon[0],latlon[1])
+        print('Testing %s at %f %f:'%(name,latlon[0],latlon[1]))
         test_grid = to_grid(latlon[0], latlon[1])
         if test_grid != grid:
-            print 'Failed '+grid+' should be '+test_grid
+            print('Failed '+grid+' should be '+test_grid)
             passed = False
         else:
-            print 'Passed '+test_grid
-    print ''
-    if passed: print 'Passed!'
-    else: print 'Failed!'
+            print( 'Passed '+test_grid)
+    print( '')
+    if passed: print('Passed!')
+    else: print('Failed!')
 
 def main(argv=None):
     if argv is None: argv = sys.argv
     if len(argv) != 3:
         usage()
-        print ''
+        print('')
         test()
     else:
-        print to_grid(float(argv[1]),float(argv[2]))
+        print (to_grid(float(argv[1]),float(argv[2])))
+
+    input('Press ENTER to exit')
 
 main()
