@@ -6,6 +6,3 @@ answers = ["As I see it, yes","It is certain","It is decidedly so","Most likely"
 raw_input("What is your question?\n")
 response = random.choice(answers)
 print response + '\n'
-#while (True):
-#   raw_input("What is your question?\n")
-#   print random.choice(answers) + '\n'
