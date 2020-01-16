@@ -19,25 +19,37 @@ SERVER_PORT = 502
 c = ModbusClient()
 
 # uncomment this line to see debug message
-#c.debug(True)
+c.debug(True)
 
 # define modbus server host, port
 c.host(SERVER_HOST)
 c.port(SERVER_PORT)
 
-while True:
-    # open or reconnect TCP to server
-    if not c.is_open():
-        if not c.open():
-            print("unable to connect to "+SERVER_HOST+":"+str(SERVER_PORT))
+# open or reconnect TCP to server
+if not c.is_open():
+    if not c.open():
+        print("unable to connect to "+SERVER_HOST+":"+str(SERVER_PORT))
 
-    # if open() is ok, read register (modbus function 0x03)
-    if c.is_open():
-        # read 10 registers at address 0, store result in regs list
-        regs = c.read_holding_registers(0, 10)
-        # if success display registers
-        if regs:
-            print("reg ad #0 to 9: "+str(regs))
+# if open() is ok, read register (modbus function 0x03)
+if c.is_open():
+    # read 16 registers at address 0, store result in regs list
+    regs = c.read_holding_registers(5408, 16)
 
-    # sleep 2s before next polling
-    time.sleep(2)
+    # if success display registers
+    if regs:
+        split_regs = list()
+
+        # Run through reg list returned by read_holding registers, and split off
+        # the 'XXXX' per register into 'XX' 'XX' by shifting and masking
+        # then recombine them into a split_regs list
+        for i, item in enumerate(regs):
+            split_regs.append(regs[i] >> 8)
+            split_regs.append(regs[i] & 0xff)
+
+        # convert the split_regs list into its ASCII form
+        ascii_list = [chr(c) for c in split_regs]
+
+        # convert the split_regs list into a string
+        s = ''.join(map(str,ascii_list))
+
+        print(str(s))
