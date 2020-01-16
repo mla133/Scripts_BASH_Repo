@@ -88,7 +88,31 @@ class FloatModbusClient(ModbusClient):
             return [utils.word_list_to_long(reg_l)]
         else:
             return None
- 
+
+    def read_text(self, reg_type, address, number=1):
+        if reg_type == 4:
+            reg_t = self.read_input_registers(address, number)
+        else:
+            reg_t = self.read_holding_registers(address, number)
+        if reg_t:
+            split_regs = list()
+
+            # Run through reg list returned by read_holding registers, and split off
+            # the 'XXXX' per register into 'XX' 'XX' by shifting and masking
+            # then recombine them into a split_regs list
+            for i, item in enumerate(reg_t):
+                split_regs.append(reg_t[i] >> 8)
+                split_regs.append(reg_t[i] & 0xff)
+
+            # convert the split_regs list into its ASCII form
+            ascii_list = [chr(c) for c in split_regs]
+
+            # convert the split_regs list into a string
+            s = ''.join(map(str,ascii_list))
+            return(s)
+        else:
+            return None
+
 ############################################################
 # FROM HERE YOU CAN POLL/WRITE TO REGISTERS AS YOU SEE FIT #
 ############################################################
@@ -108,34 +132,34 @@ while repeat == 'y':
     #connecting to MicroLoad
     c = FloatModbusClient(host= ip1, port=502, unit_id = 1, auto_open=True)
     
-    #checks to see if MicroLoad connection is open
+    # comment this out if you want debugging turned off
+    #c.debug(True)
+
+    #checks to see if device connection is open
     if c.open():
         #letting the user know that the device is connected and data is being read
-        print("Connected to device")
-        #collecting date/time for MicroFlow
-        #Microhour = c.read_input_registers(1670,1)
-        #Microminute = c.read_input_registers(1669,1)
-        #Microsecond = c.read_input_registers(1668,1)
-        #Microday = c.read_input_registers(1666,1)
-        #Micromonth = c.read_input_registers(1665,1)
-        #Microyear = c.read_input_registers(1664,1)
-        #assigning values as strings to MicroTime and MicroDate ([1:-1] removes bracket from data ouput)
-        #MicroTime = str(Microhour)[1:-1] + str(":") + str(Microminute)[1:-1] + str(":") + str(Microsecond)[1:-1]
-        #MicroDate = str(Microday)[1:-1] + str("/") + str(Micromonth)[1:-1] + str("/") + str(Microyear)[1:-1]
-        # collecting float values from MicroFlow using modbus adresses
-        #RomCRC = c.read_input_registers(3840,2);
-        #RomMajor = c.read_input_registers(3584,1);
-        #RomMinor = c.read_input_registers(3585,1);
+        print("Connected to " + ip1 )
+        print("")
+        print("Checking values of PI (3.14159...)")
 
-        RomCRC = c.read_input_registers(4928,2);
-        RomMajor = c.read_input_registers(4800,1);
-        RomMinor = c.read_input_registers(4804,1);
+        float_PI = c.read_float(3, 2106, 1)
+        double_PI = c.read_double(3, 2108, 1)
 
-        print(RomCRC);
-        print(RomMajor);
-        print(RomMinor);
+        print("Float version:")
+        print(float_PI)
+        print("Double version:")
+        print(double_PI)
+
+        print("")
+        print("Reading Load Arm 1 ID")
+        load_arm_1_ID = c.read_text(3, 5408, 16)
+        print(load_arm_1_ID)
+        print("")
 
         #closing the connection to the MicroFlow
+        print("")
+        print("Closing connection to " + ip1)
+        print("")
         c.close()
     else:
         #letting the user know that the device isn't connected
@@ -206,8 +230,8 @@ while repeat == 'y':
     #will enter this if statement if the user would like to repeat this program
     if repeat == 'y':
         #asking the user if they would like to use the same ips
-        ip_repeat = input("Would you like to use the same ip adresse? (y/n): ")
+        ip_repeat = input("Would you like to use the same ip address? (y/n): ")
         #will enter this if statement if the user would like to enter new ips
         if ip_repeat == 'n':
             #prompting the user to enter the ip for each device
-            ip1 = input("Enter MicroFlow ip address (Press enter if MicroFlow is unused): ")
+            ip1 = input("Enter device ip address: ")
