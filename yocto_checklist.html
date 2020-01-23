@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+<body>
+
+<h1>Yocto Build Instructions</h1>
+
+<h2>AcculoadIV Source Branch</h2>
+<label class="container">git pull<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull --tags<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git tag -n1 (just to view them)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git log -n1 (prints last commit)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">copy the commit hash (cntl+shift+tag)<input type="checkbox"><span class="checkmark"></span></label>
+
+<h3><form>Enter the commit hash here  <input commit_hash="commit" type="text"></form></h3>
+
+<label class="container">git tag -a AcculoadIV-0.6.rc3 -m "Release Candidate 3"<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git push origin --tags<input type="checkbox"><span class="checkmark"></span></label>
+
+<h2>Log into Yocto Server</h2>
+<label class="container">ssh 192.168.181.244 (yocto server)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">    username: fmcbuilder<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">    password: builder1<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">tmux ls<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">tmux a -t accu4<input type="checkbox"><span class="checkmark"></span></label>
+
+<h2>Accuload meta-fmc-aliv Build Layer</h2>
+<h3>(application meta layer. has all of the different bitbake recipes for the application)</h3>
+<label class="container">cd ../acculoadiv.meta-fmc-aliv<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git branch<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">edit recipes/accuload/accuload_5.bb<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">paste in the commit hash copied earlier<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">updated the tag number in the comment (ex: 0.6.rc3)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">If going to a new revision (ex:.6-0.7)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">update PV = "0.7+gitr${SRCPV}"<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">save it<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git status (should see modification)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git add -u (will add everything)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git log -n3<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git commit -m "Updated recipe for release candidate RCXX"<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git log -n1<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git tag -n1<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git tag -a AcculoadIV-0.6.rc3 -m "Release Candidate 3"<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git push origin<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git push origin --tags<input type="checkbox"><span class="checkmark"></span></label>
+
+<h2>Accuload fmc-oi-build-bbb Build Layer</h2>
+<label class="container">cd ../accuload.fmc-oe-build-bbb<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git branch<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull --tags<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git submodule<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">cd sources/meta-fmc-aliv/<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git status<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git branch<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git tag -n1<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git status (should be up to date now)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">cd ../..<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">status (should see the submodule was modified)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git add -u<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git commit (Enter meaningful message)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git status<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git tag -a AcculoadIV-0.6rc3 -m "Release Candidate 3"<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git push origin --tags<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull --tags<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git status<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">submodule won't match<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git submodule update --recursive<input type="checkbox"><span class="checkmark"></span></label>
+
+<h2>Check meta-fmc-aliv Layer</h2>
+<label class="container">ctrl+b <down> to move to the bottom pane<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git branch<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git checkout develop<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git pull tags<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git branch<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git log -n1<input type="checkbox"><span class="checkmark"></span></label>
+
+<h2>Set the build environment and kick off the build...</h2>
+<label class="container">ctrl+b <up arrow><input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">git status (ignore the untracked file)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">. envsetup.sh (run so tags are updated)<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">fmc_update<input type="checkbox"><span class="checkmark"></span></label>
+<label class="container">fmc_build<input type="checkbox"><span class="checkmark"></span></label>
+<h3>after it builds:</h3>
+<label class="container">fmc_export release_candidate<input type="checkbox"><span class="checkmark"></span></label>
+        
+</body>
+</html>
