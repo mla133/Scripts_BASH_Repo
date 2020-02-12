@@ -5,10 +5,11 @@ import struct
 import datetime
 import csv
 import time
-import extmod
+import extmod  # updated modbus library that handles floats/doubles/text
 
 SERVER_HOST = "192.168.181.79"
 SERVER_PORT = 502
+LOGFILE     = "injector_data_021120.csv"
 
 c = extmod.ExtendedModbusClient()
 
@@ -19,7 +20,7 @@ c.port(SERVER_PORT)
 print("BatchGV\t\tAdditive Rates\t\t");
 
 # Add Header to top of CSV file
-with open('injector_data.csv', 'a') as inj_data:
+with open(LOGFILE, 'a') as inj_data:
     inj_data_writer = csv.writer(inj_data)
     inj_data_writer.writerow(['Time', 'Trans#', 'Batch#', 'Recipe#', 'Trans GV', 'Add5 #inj', 'Add5 Rate', 'Add5_Vol','Add7 #inj', 'Add7 Rate', 'Add7_Vol'])
 inj_data.close()
@@ -67,7 +68,7 @@ while True:
 
         c.close()
 
-        with open('injector_data.csv', 'a') as inj_data:
+        with open(LOGFILE, 'a') as inj_data:
             inj_data_writer = csv.writer(inj_data)
             inj_data_writer.writerow([AL3time, trans_no, batch_no, recipe_no, trans_GV, add5_curinj, add5_rate, add5_vol, add7_curinj, add7_rate, add7_vol])
         inj_data.close()
