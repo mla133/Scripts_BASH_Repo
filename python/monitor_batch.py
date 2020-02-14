@@ -10,7 +10,7 @@ import time
 
 import extmod  # updated modbus library that handles floats/doubles/text
 
-LOGFILE     = "02132020-run100.csv"
+LOGFILE     = "02142020-run100.csv"
 SERVER_HOST = "192.168.181.79"
 SERVER_PORT = 502
 
@@ -27,6 +27,13 @@ c.port(SERVER_PORT)
 if not c.is_open():
     if not c.open():
         print("unable to connect to "+SERVER_HOST+":"+str(SERVER_PORT))
+
+
+# Check for alarms from possible previous run, stop if encountered 
+status      = c.read_discrete_inputs(4160, 17)
+if status[8]:
+    print("Alarms are present...check AccuLoad.")
+    exit() 
 
 # 0x0400 AB variant, allocate recipe 7 for the batch
 command = c.write_multiple_registers(0, [12, 0x0400, 2, 0, 64, 0, 0]) 
@@ -76,6 +83,11 @@ while True:
         add5_vol    = c.read_double(4, 4520, 1)
         AL3time     = c.read_text(3, 3728, 16)
         trans_GV    = c.read_double(4, 4484, 1)
+        
+        # check for alarms, if any, bail and notify user
+        if status[8]:
+            print("ALARM occurred...check AccuLoad.")
+            break
 
         # check for BD flag and NOT FL flag to then break to end transaction
         if (status[3] and not status[12]):
