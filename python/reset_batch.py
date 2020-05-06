@@ -23,11 +23,6 @@ if not c.is_open():
 # if open() is ok
 if c.is_open():
     # Send Reset_Batch command to microFlow (40578)
-    # 0- new batch, same recipe as previous
-    # 1- new batch, Recipe 1 
-    # 2- new batch, Recipe 2 
-    # 3- new batch, Recipe 3 
-    # 4- new batch, Recipe 4 
     recipe = int(input("Enter recipe (0 for current): "))
 
     update = c.write_single_register(40578,recipe)
