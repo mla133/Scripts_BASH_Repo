@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from pyModbusTCP.client import ModbusClient
@@ -23,13 +23,6 @@ if not c.is_open():
 # if open() is ok
 if c.is_open():
     # Send Reset_Batch command to microFlow (40578)
-    # 0- new batch, same recipe as previous
-    # 1- new batch, Recipe 1 
-    # 2- new batch, Recipe 2 
-    # 3- new batch, Recipe 3 
-    # 4- new batch, Recipe 4 
-    recipe = int(input("Enter recipe (0 for current): "))
-
     update = c.write_single_register(40578,recipe)
     if update:
         result = c.read_input_registers(3590,1)
@@ -39,8 +32,8 @@ if c.is_open():
     if update:
         result = c.read_input_registers(3590,1)
         
-        end_time_text = c.read_text(4, 2384, 16)
-        start_time_text   = c.read_text(4, 2400, 16)
+        end_time_text   = c.read_text(4, 2384, 16)
+        start_time_text = c.read_text(4, 2400, 16)
         avg_mfac        = c.read_float(4, 2816)
         k_factor        = c.read_double(3, 23552)
         avg_ctl         = c.read_float(4, 4874)
