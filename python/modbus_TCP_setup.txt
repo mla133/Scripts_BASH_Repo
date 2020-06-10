@@ -1,0 +1,18 @@
+python3 reset_batch.py
+
+# Installation of Modbus modules for TCP:
+
+## First install pip for python3:
+ sudo apt-get install python3-pip
+
+## Update Ubuntu's version of pip to latest:
+ sudo pip3 install --upgrade pip
+
+## Then install pyModbudTCP:
+ sudo pip3 install pyModbusTCP
+
+# Running the script... 
+ python3 reset_batch.py 
+
+# include extmod.py in same directory with 
+# script to enable float/double/text support 
