@@ -10,8 +10,9 @@ import time
 
 import extmod  # updated modbus library that handles floats/doubles/text
 
-LOGFILE     = "02142020-run100.csv"
-SERVER_HOST = "192.168.181.79"
+LOGFILE     = "07222020-run100.csv"
+#SERVER_HOST = "192.168.181.79"
+SERVER_HOST = "192.168.76.1"
 SERVER_PORT = 502
 
 c = extmod.ExtendedModbusClient(host=SERVER_HOST, port=SERVER_PORT, auto_open=True)
