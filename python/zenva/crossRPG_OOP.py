@@ -79,7 +79,7 @@ class Game:
                     if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                         direction = 0
 
-                print(event)
+                # print(event)
 
             
             # Redraw the screen to be a blank white window
