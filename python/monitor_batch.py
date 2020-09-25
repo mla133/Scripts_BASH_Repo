@@ -10,7 +10,7 @@ import random
 
 import extmod  # updated modbus library that handles floats/doubles/text
 
-LOGFILE     = "red_dye_082020.csv"
+LOGFILE     = "red_dye_092420_variable.csv"
 SERVER_HOST = "192.168.76.1"
 SERVER_PORT = 502
 
@@ -37,7 +37,9 @@ AB_result = c.read_input_registers(0, 4)
 print("Allocated Recipe 7..." + str(hex(AB_result[2])))
 
 # 0x0400 SB variant, preset batch to 990-1010 gallons
-RAND_PRESET_VOL  = round(random.uniform(900.0, 1100.0), 0)   # Random preset from 900-1100
+RAND_PRESET_VOL  = round(random.uniform(500.0, 1500.0), 0)   # Random preset from 900-1100
+#  RAND_PRESET_VOL = 1000.0
+
 # Issue Command Data
 command = c.write_multiple_registers(0, [12, 0x0400, 3])
 command = c.write_float(3, [RAND_PRESET_VOL])
