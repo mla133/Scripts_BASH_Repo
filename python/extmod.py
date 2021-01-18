@@ -3,22 +3,14 @@ from pyModbusTCP import utils
 import struct
 
 ################################################################################################################
-#    functions to decode double and float values
+#    functions for decoding long/text/float/double
 ################################################################################################################
 
-#########################
-# floating-point function
-#########################
 def decode_ieee(val_int):
    return struct.unpack("f", struct.pack("I", val_int))[0]
 
 def decode_ieee_double(val_int):
    return struct.unpack("d", struct.pack("q", val_int))[0]
-
-#################################################################
-# decoding long long (64 bits)
-#################################################################
-
 
 def word_list_to_longlong(val_list, big_endian=True):
    # allocate list for long int
@@ -31,7 +23,6 @@ def word_list_to_longlong(val_list, big_endian=True):
             longlong_list [i] = (val_list[(i * 4) + 3] << 48) + (val_list[(i * 4) + 2] << 32) + (val_list[(i * 4) + 1] << 16) + val_list[i * 4]
     # return longlong_list list
     return longlong_list
-
 
 def long_list_to_word(val_list, big_endian=True):
    # allocate list for long int
@@ -48,7 +39,7 @@ def long_list_to_word(val_list, big_endian=True):
     return word_list
 
 #################################################################################################################################
-#                End of data decoding functions
+#   End of data decoding functions
 #################################################################################################################################
 
 class ExtendedModbusClient(ModbusClient):
@@ -76,6 +67,7 @@ class ExtendedModbusClient(ModbusClient):
             return [decode_ieee_double(d) for d in word_list_to_longlong(reg_ll)]
         else:
             return None
+
     def read_long(self, reg_type,  address, number=1):
         if reg_type == 4:
             reg_l = self.read_input_registers(address, number * 2)
@@ -109,7 +101,3 @@ class ExtendedModbusClient(ModbusClient):
             return(s)
         else:
             return None
-
-#########################################################################################################################
-
-

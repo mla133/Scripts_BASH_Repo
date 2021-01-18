@@ -9,20 +9,17 @@ import csv
 import random
 
 import extmod  # updated modbus library that handles floats/doubles/text
+import accuload
 
-LOGFILE     = "red_dye_092420_variable.csv"
+print(pyModbusTCP.__file__)
+
+LOGFILE     = "test.csv"
 SERVER_HOST = "192.168.76.1"
 SERVER_PORT = 502
 
-c = extmod.ExtendedModbusClient(host=SERVER_HOST, port=SERVER_PORT, auto_open=True)
-
-# uncomment this line to see debug message
-#c.debug(True)
-
-# open or reconnect TCP to server
-if not c.is_open():
-    if not c.open():
-        print("unable to connect to "+SERVER_HOST+":"+str(SERVER_PORT))
+# c = extmod.ExtendedModbusClient(host=SERVER_HOST, port=SERVER_PORT, auto_open=True)
+c = accuload.Connect(host=SERVER_HOST, port=SERVER_PORT)
+EndBatch(c)
 
 # Check for alarms from possible previous run, stop if encountered 
 status = c.read_discrete_inputs(4160, 17)
@@ -35,6 +32,10 @@ command = c.write_multiple_registers(0, [12, 0x0400, 2, 0, 64, 0, 0])
 update = c.write_single_coil(4096,1)
 AB_result = c.read_input_registers(0, 4)
 print("Allocated Recipe 7..." + str(hex(AB_result[2])))
+
+
+# c = ConnectUUT(host, port, auto_open)
+# AllocateBatch(object=c, mask=<0x000>)
 
 # 0x0400 SB variant, preset batch to 990-1010 gallons
 RAND_PRESET_VOL  = round(random.uniform(500.0, 1500.0), 0)   # Random preset from 900-1100
@@ -54,6 +55,8 @@ command = c.write_multiple_registers(0, [4, 0x0400, 6])
 update = c.write_single_coil(4096,1)
 SA_result = c.read_input_registers(0, 4)
 print("Starting Batch..." + str(hex(SA_result[2])))
+
+# StartBatch(var1, var2)...
 
 time.sleep(1)
 print("Running Batch...")
